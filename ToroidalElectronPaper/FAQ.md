@@ -152,6 +152,32 @@ The theory produces several quantitative results at different levels of rigor:
 
 The strongest quantitative result is the soliton energy matching $m_e c^2$ with $\kappa_2 \sim \alpha\hbar c$. **The theory produces order-of-magnitude to percent-level agreement across several quantities, with each result's epistemic status clearly labeled.**
 
+### Q: The paper has a Lamb shift prediction and we know the measured value. Does that validate the theory?
+
+This is an important question that deserves a careful answer. The short answer is: **it's a passed consistency check, not a positive validation.**
+
+Here's what's going on. The hydrogen Lamb shift ($2S_{1/2} - 2P_{1/2}$ splitting) is measured to extraordinary precision: $1057.845(9)$ MHz, agreeing with QED to ~20 kHz. Any extended electron model must be consistent with this.
+
+The toroidal electron has geometric extent at $r_e \sim 2.82$ fm. If the electron's charge were spread over this region, it would produce a Lamb shift correction of ~0.3 MHz --- which is **already ruled out** by the 20 kHz agreement between QED and experiment. This was one of the most dangerous experimental constraints.
+
+The theory resolves this through the **topological Ward identity** (§15.5): in the CFN decomposition, electric charge is carried by the Abelian gauge field $C_\mu$, not by the spatially extended soliton field $\mathbf{n}$. This gives $F_E(q^2) = 1$ exactly --- the electron looks point-like to electric probes. The *charge* contribution to the Lamb shift therefore vanishes.
+
+However, the *magnetic moment distribution* does extend to $R \sim \bar{\lambda}_C$, and this predicts a small magnetic correction:
+
+$$\delta E_{\text{mag}} \sim \text{kHz level} \tag{FAQ.3}$$
+
+This is right at the frontier of current spectroscopic precision.
+
+**What this means:**
+
+| Statement | Correct? |
+|-----------|----------|
+| "The Lamb shift confirms the theory" | No --- the model doesn't independently predict 1057.845 MHz |
+| "The Lamb shift is consistent with the theory" | Yes --- the Ward identity prevents the charge correction that would have killed it |
+| "The Lamb shift could test the theory in the future" | Yes --- the kHz magnetic correction is a genuine prediction |
+
+The honest assessment: the model **survives** the Lamb shift constraint (which many extended electron models do not), and it does so through a specific physical mechanism (topological Ward identity) rather than parameter tuning. That's meaningful --- it demonstrates internal consistency. But it's the *absence* of a contradiction, not the *presence* of a confirmed prediction. The real test comes when next-generation spectroscopy reaches the kHz level and can look for the predicted magnetic-structure corrections.
+
 ### Q: What's the deal with the coupling constant discrepancy?
 
 This is the theory's most significant quantitative challenge. The tree-level CFN matching gives $\kappa_2 \sim 1/g^2$, and setting $\kappa_2 \approx \alpha\hbar c$ implies $g \sim 12$, while the measured SU(2)$_L$ coupling is $g_W \approx 0.65$. But the paper argues this framing is misleading: the tree-level formula has a loop expansion parameter $\varepsilon_{\text{loop}} = g^2/(16\pi^2) \approx 0.91$ at $g = 12$, so the perturbative expansion doesn't converge. You can't reliably infer $g$ from $\kappa_2$ using a formula that breaks down at the coupling it predicts. This is analogous to the Skyrme model, where $f_\pi$ cannot be extracted from $\alpha_s(M_Z)$ by perturbative matching --- it requires lattice QCD or non-perturbative methods. Three paths forward are identified: (A) treat $\kappa_2$ as an empirical input (like $f_\pi$ in the Skyrme model), (B) model Higgs VEV suppression inside the soliton core, or (C) consider a BSM SU(2). **The gap is real and quantified ($56\times$), but the perturbative formula used to identify it is unreliable at the coupling it predicts.**
