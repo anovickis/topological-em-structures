@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <!-- Starburst gradient -->
+    <radialGradient id="starburst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffbe6"/>
+      <stop offset="40%" stop-color="#e9c46a"/>
+      <stop offset="80%" stop-color="#e9c46a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e9c46a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Coral torus gradient -->
+    <radialGradient id="coralGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#f4a393"/>
+      <stop offset="100%" stop-color="#e76f51"/>
+    </radialGradient>
+    <!-- Teal torus gradient -->
+    <radialGradient id="tealGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#5ec4b6"/>
+      <stop offset="100%" stop-color="#2a9d8f"/>
+    </radialGradient>
+    <!-- Arrow marker -->
+    <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <!-- Small circulation arrow marker -->
+    <marker id="circArrowCoral" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#e76f51"/>
+    </marker>
+    <marker id="circArrowTeal" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#2a9d8f"/>
+    </marker>
+    <!-- Field line arrow markers -->
+    <marker id="fieldArrowBlue" markerWidth="5" markerHeight="4" refX="4" refY="2" orient="auto">
+      <polygon points="0 0, 5 2, 0 4" fill="#4477bb"/>
+    </marker>
+    <marker id="fieldArrowRed" markerWidth="5" markerHeight="4" refX="4" refY="2" orient="auto">
+      <polygon points="0 0, 5 2, 0 4" fill="#cc4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" rx="8" fill="#f0f4ff" stroke="#ccd5e8" stroke-width="1.5"/>
+
+  <!-- ===== PANEL DIVIDERS (subtle) ===== -->
+  <line x1="300" y1="30" x2="300" y2="340" stroke="#ccd5e8" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="600" y1="30" x2="600" y2="340" stroke="#ccd5e8" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ===== CONNECTING ARROWS between panels ===== -->
+  <line x1="270" y1="175" x2="320" y2="175" stroke="#555" stroke-width="2" marker-end="url(#arrowRight)"/>
+  <line x1="570" y1="175" x2="620" y2="175" stroke="#555" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+  <!-- ============================================================ -->
+  <!-- LEFT PANEL: Photon (H = 0)                                   -->
+  <!-- ============================================================ -->
+
+  <!-- Panel title -->
+  <text x="150" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#333">Before</text>
+
+  <!-- Energy threshold label above wave -->
+  <text x="150" y="82" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#a855f7" font-style="italic">E ≥ 2m&#x2091;c&#xB2;</text>
+
+  <!-- Sinusoidal E field (red) -->
+  <path d="M 40,170
+           C 55,170 55,120 70,120
+           C 85,120 85,170 100,170
+           C 115,170 115,220 130,220
+           C 145,220 145,170 160,170
+           C 175,170 175,120 190,120
+           C 205,120 205,170 220,170
+           C 235,170 235,220 250,220
+           C 265,220 265,170 260,170"
+        fill="none" stroke="#cc4444" stroke-width="2.2" marker-end="url(#fieldArrowRed)"/>
+
+  <!-- Sinusoidal B field (blue), phase-shifted 90 degrees, shown as dashed -->
+  <path d="M 40,170
+           C 55,140 70,140 70,170
+           C 70,200 85,200 100,170
+           C 115,140 130,140 130,170
+           C 130,200 145,200 160,170
+           C 175,140 190,140 190,170
+           C 190,200 205,200 220,170
+           C 235,140 250,140 250,170"
+        fill="none" stroke="#4477bb" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Field labels -->
+  <text x="265" y="115" font-family="Georgia, serif" font-size="11" fill="#cc4444" font-weight="bold">E</text>
+  <text x="258" y="148" font-family="Georgia, serif" font-size="11" fill="#4477bb" font-weight="bold">B</text>
+
+  <!-- Propagation arrow -->
+  <line x1="60" y1="248" x2="245" y2="248" stroke="#777" stroke-width="1.2" marker-end="url(#arrowRight)"/>
+  <text x="152" y="265" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#777" font-style="italic">propagation</text>
+
+  <!-- "Unlinked field lines" annotation -->
+  <text x="150" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">Unlinked field lines</text>
+
+  <!-- Label below -->
+  <text x="150" y="318" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#333">Photon (H = 0)</text>
+
+  <!-- ============================================================ -->
+  <!-- CENTER PANEL: Topology Change                                -->
+  <!-- ============================================================ -->
+
+  <!-- Panel title -->
+  <text x="450" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#333">Topology Change</text>
+
+  <!-- "Singular event" label -->
+  <text x="450" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#a855f7" font-style="italic">Singular event</text>
+
+  <!-- Starburst glow -->
+  <circle cx="450" cy="160" r="55" fill="url(#starburst)"/>
+  <circle cx="450" cy="160" r="30" fill="#fffbe6" stroke="#e9c46a" stroke-width="1.5"/>
+
+  <!-- Starburst rays -->
+  <g stroke="#e9c46a" stroke-width="1.8" stroke-linecap="round">
+    <line x1="450" y1="125" x2="450" y2="100"/>
+    <line x1="450" y1="195" x2="450" y2="220"/>
+    <line x1="415" y1="160" x2="390" y2="160"/>
+    <line x1="485" y1="160" x2="510" y2="160"/>
+    <line x1="425" y1="135" x2="408" y2="118"/>
+    <line x1="475" y1="135" x2="492" y2="118"/>
+    <line x1="425" y1="185" x2="408" y2="202"/>
+    <line x1="475" y1="185" x2="492" y2="202"/>
+    <!-- Secondary shorter rays -->
+    <line x1="430" y1="128" x2="420" y2="110" stroke-width="1.2"/>
+    <line x1="470" y1="128" x2="480" y2="110" stroke-width="1.2"/>
+    <line x1="430" y1="192" x2="420" y2="210" stroke-width="1.2"/>
+    <line x1="470" y1="192" x2="480" y2="210" stroke-width="1.2"/>
+  </g>
+
+  <!-- Transitioning field lines (left side, unlinked entering) -->
+  <path d="M 335,140 C 355,140 365,145 385,150" fill="none" stroke="#cc4444" stroke-width="1.3" stroke-opacity="0.6"/>
+  <path d="M 335,160 C 355,160 365,158 385,157" fill="none" stroke="#4477bb" stroke-width="1.3" stroke-opacity="0.6" stroke-dasharray="4,3"/>
+  <path d="M 335,180 C 355,180 365,175 385,170" fill="none" stroke="#cc4444" stroke-width="1.3" stroke-opacity="0.6"/>
+
+  <!-- Transitioning field lines (right side, linked exiting) -->
+  <path d="M 515,145 C 535,140 545,135 565,130" fill="none" stroke="#e76f51" stroke-width="1.3" stroke-opacity="0.7"/>
+  <path d="M 515,160 C 530,158 540,162 555,165" fill="none" stroke="#e76f51" stroke-width="1.3" stroke-opacity="0.5"/>
+  <path d="M 515,175 C 535,180 545,185 565,195" fill="none" stroke="#2a9d8f" stroke-width="1.3" stroke-opacity="0.7"/>
+  <path d="M 515,160 C 530,165 540,172 555,180" fill="none" stroke="#2a9d8f" stroke-width="1.3" stroke-opacity="0.5"/>
+
+  <!-- Nucleus (catalyst dot) -->
+  <circle cx="450" cy="255" r="8" fill="#555" stroke="#333" stroke-width="1.5"/>
+  <text x="450" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="white" font-weight="bold">Z</text>
+
+  <!-- Nuclear field lines (Coulomb field) -->
+  <g stroke="#888" stroke-width="0.8" stroke-dasharray="3,2">
+    <line x1="450" y1="245" x2="450" y2="225"/>
+    <line x1="460" y1="248" x2="470" y2="233"/>
+    <line x1="440" y1="248" x2="430" y2="233"/>
+    <line x1="462" y1="255" x2="475" y2="255"/>
+    <line x1="438" y1="255" x2="425" y2="255"/>
+  </g>
+
+  <!-- Label below nucleus -->
+  <text x="450" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">Nuclear field</text>
+  <text x="450" y="294" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#555">catalyst</text>
+
+  <!-- Equation: Hopf charge conservation -->
+  <text x="450" y="325" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#a855f7" font-weight="bold">0 = (&#x2212;1) + (+1)</text>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT PANEL: Electron + Positron                             -->
+  <!-- ============================================================ -->
+
+  <!-- Panel title -->
+  <text x="750" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#333">After</text>
+
+  <!-- Dashed line between tori showing they fly apart -->
+  <line x1="700" y1="170" x2="800" y2="170" stroke="#777" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <!-- Separation arrows -->
+  <line x1="735" y1="163" x2="715" y2="163" stroke="#777" stroke-width="1" marker-end="url(#arrowRight)"/>
+  <line x1="765" y1="163" x2="785" y2="163" stroke="#777" stroke-width="1" marker-end="url(#arrowRight)"/>
+
+  <!-- ===== ELECTRON TORUS (Coral, left) ===== -->
+  <g transform="translate(680, 170)">
+    <!-- Outer ellipse of torus -->
+    <ellipse cx="0" cy="0" rx="38" ry="24" fill="none" stroke="url(#coralGrad)" stroke-width="2.5"/>
+    <!-- Inner hole highlight (top half of torus body) -->
+    <ellipse cx="0" cy="-4" rx="16" ry="8" fill="#f0f4ff" stroke="url(#coralGrad)" stroke-width="1.5"/>
+    <!-- Torus body - top arc -->
+    <path d="M -38,0 C -38,-30 -16,-30 -16,-4" fill="none" stroke="#e76f51" stroke-width="3"/>
+    <path d="M 38,0 C 38,-30 16,-30 16,-4" fill="none" stroke="#e76f51" stroke-width="3"/>
+    <!-- Torus body - bottom arc -->
+    <path d="M -38,0 C -38,28 -16,28 -16,4" fill="none" stroke="#e76f51" stroke-width="3" stroke-opacity="0.5"/>
+    <path d="M 38,0 C 38,28 16,28 16,4" fill="none" stroke="#e76f51" stroke-width="3" stroke-opacity="0.5"/>
+    <!-- Fill the torus surface lightly -->
+    <path d="M -38,0 C -38,-30 -16,-30 -16,-4 C -16,-10 16,-10 16,-4 C 16,-30 38,-30 38,0 C 38,28 16,28 16,4 C 16,10 -16,10 -16,4 C -16,28 -38,28 -38,0 Z"
+          fill="#e76f51" fill-opacity="0.2"/>
+
+    <!-- Circulation arrow (clockwise when viewed from above) -->
+    <path d="M -8,-22 C -22,-22 -30,-10 -30,0" fill="none" stroke="#e76f51" stroke-width="1.8" marker-end="url(#circArrowCoral)"/>
+
+    <!-- Field lines wrapping around torus (poloidal) -->
+    <path d="M -27,0 C -27,-18 -5,-20 0,-12" fill="none" stroke="#cc4444" stroke-width="1" stroke-opacity="0.6"/>
+    <path d="M 0,-12 C 5,-20 27,-18 27,0" fill="none" stroke="#cc4444" stroke-width="1" stroke-opacity="0.6"/>
+    <path d="M 27,0 C 27,16 5,18 0,10" fill="none" stroke="#cc4444" stroke-width="1" stroke-opacity="0.4"/>
+    <path d="M 0,10 C -5,18 -27,16 -27,0" fill="none" stroke="#cc4444" stroke-width="1" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Electron label -->
+  <text x="680" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="bold" fill="#e76f51">e&#x207B; (H = &#x2212;1)</text>
+  <text x="680" y="236" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">Linked fields</text>
+
+  <!-- ===== POSITRON TORUS (Teal, right) ===== -->
+  <g transform="translate(820, 170)">
+    <!-- Outer ellipse of torus -->
+    <ellipse cx="0" cy="0" rx="38" ry="24" fill="none" stroke="url(#tealGrad)" stroke-width="2.5"/>
+    <!-- Inner hole highlight -->
+    <ellipse cx="0" cy="-4" rx="16" ry="8" fill="#f0f4ff" stroke="url(#tealGrad)" stroke-width="1.5"/>
+    <!-- Torus body - top arc -->
+    <path d="M -38,0 C -38,-30 -16,-30 -16,-4" fill="none" stroke="#2a9d8f" stroke-width="3"/>
+    <path d="M 38,0 C 38,-30 16,-30 16,-4" fill="none" stroke="#2a9d8f" stroke-width="3"/>
+    <!-- Torus body - bottom arc -->
+    <path d="M -38,0 C -38,28 -16,28 -16,4" fill="none" stroke="#2a9d8f" stroke-width="3" stroke-opacity="0.5"/>
+    <path d="M 38,0 C 38,28 16,28 16,4" fill="none" stroke="#2a9d8f" stroke-width="3" stroke-opacity="0.5"/>
+    <!-- Fill the torus surface lightly -->
+    <path d="M -38,0 C -38,-30 -16,-30 -16,-4 C -16,-10 16,-10 16,-4 C 16,-30 38,-30 38,0 C 38,28 16,28 16,4 C 16,10 -16,10 -16,4 C -16,28 -38,28 -38,0 Z"
+          fill="#2a9d8f" fill-opacity="0.2"/>
+
+    <!-- Circulation arrow (counter-clockwise - opposite to electron) -->
+    <path d="M 8,-22 C 22,-22 30,-10 30,0" fill="none" stroke="#2a9d8f" stroke-width="1.8" marker-end="url(#circArrowTeal)"/>
+
+    <!-- Field lines wrapping around torus (opposite direction) -->
+    <path d="M 27,0 C 27,-18 5,-20 0,-12" fill="none" stroke="#2a9d8f" stroke-width="1" stroke-opacity="0.6"/>
+    <path d="M 0,-12 C -5,-20 -27,-18 -27,0" fill="none" stroke="#2a9d8f" stroke-width="1" stroke-opacity="0.6"/>
+    <path d="M -27,0 C -27,16 -5,18 0,10" fill="none" stroke="#2a9d8f" stroke-width="1" stroke-opacity="0.4"/>
+    <path d="M 0,10 C 5,18 27,16 27,0" fill="none" stroke="#2a9d8f" stroke-width="1" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Positron label -->
+  <text x="820" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="bold" fill="#2a9d8f">e&#x207A; (H = +1)</text>
+  <text x="820" y="236" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">Linked fields</text>
+
+  <!-- ===== CAPTION ===== -->
+  <rect x="120" y="355" width="660" height="32" rx="4" fill="#e8ecf4" stroke="#ccd5e8" stroke-width="1"/>
+  <text x="450" y="377" text-anchor="middle" font-family="Georgia, serif" font-size="12.5" fill="#333">
+    Pair production as topology change: H = 0 &#x2192; H = &#x2212;1 + H = +1
+  </text>
+
+</svg>

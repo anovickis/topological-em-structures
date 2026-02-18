@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" style="background:#f0f4ff">
+  <defs>
+    <!-- Arrowhead for E-field (coral) -->
+    <marker id="arrowCoral" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e76f51"/>
+    </marker>
+    <!-- Arrowhead for external E-field (gold) -->
+    <marker id="arrowGold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e9c46a"/>
+    </marker>
+    <!-- Arrowhead for internal fields (muted) -->
+    <marker id="arrowMuted" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+    <!-- Arrowhead for poloidal E inside dark matter -->
+    <marker id="arrowDMCoral" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,2.5 L0,5 Z" fill="#8b5e50"/>
+    </marker>
+    <!-- Glow filter for electron panel -->
+    <filter id="glowGold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowCoral" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Subtle outer glow for the torus cross-sections -->
+    <filter id="torusGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ==================== LEFT PANEL: ELECTRON (H = +/-1) ==================== -->
+
+  <!-- Panel title -->
+  <text x="250" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#e76f51" letter-spacing="2">ELECTRON</text>
+  <text x="250" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#222" font-style="italic">H = &#xb1;1</text>
+
+  <!-- Torus cross-section circle (tube slice) -->
+  <circle cx="250" cy="230" r="60" fill="#d8cce8" stroke="#a855f7" stroke-width="2.5" filter="url(#torusGlow)"/>
+
+  <!-- Poloidal E-field lines circulating AROUND the cross-section (coral arrows) -->
+  <!-- Top arc: left to right -->
+  <path d="M 210,178 A 55,55 0 0,1 290,178" fill="none" stroke="#e76f51" stroke-width="1.8" marker-end="url(#arrowCoral)" filter="url(#glowCoral)"/>
+  <!-- Right arc: top to bottom -->
+  <path d="M 298,198 A 55,55 0 0,1 298,262" fill="none" stroke="#e76f51" stroke-width="1.8" marker-end="url(#arrowCoral)" filter="url(#glowCoral)"/>
+  <!-- Bottom arc: right to left -->
+  <path d="M 290,282 A 55,55 0 0,1 210,282" fill="none" stroke="#e76f51" stroke-width="1.8" marker-end="url(#arrowCoral)" filter="url(#glowCoral)"/>
+  <!-- Left arc: bottom to top -->
+  <path d="M 202,262 A 55,55 0 0,1 202,198" fill="none" stroke="#e76f51" stroke-width="1.8" marker-end="url(#arrowCoral)" filter="url(#glowCoral)"/>
+
+  <!-- E-field label inside -->
+  <text x="250" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#e76f51" font-weight="bold">E (poloidal)</text>
+
+  <!-- B-field dot in center (toroidal, out of page) -->
+  <circle cx="250" cy="240" r="10" fill="none" stroke="#2a9d8f" stroke-width="2"/>
+  <circle cx="250" cy="240" r="2.5" fill="#2a9d8f"/>
+  <text x="250" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#2a9d8f" font-weight="bold">B (toroidal)</text>
+
+  <!-- ===== EXTERNAL RADIAL E-FIELD LINES (gold, Coulomb 1/r^2) ===== -->
+  <!-- 12 radial arrows emanating outward -->
+  <!-- 0 deg (right) -->
+  <line x1="315" y1="230" x2="380" y2="230" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 30 deg -->
+  <line x1="306" y1="197" x2="363" y2="164" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 60 deg -->
+  <line x1="283" y1="174" x2="316" y2="117" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 90 deg (up) -->
+  <line x1="250" y1="165" x2="250" y2="100" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 120 deg -->
+  <line x1="217" y1="174" x2="184" y2="117" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 150 deg -->
+  <line x1="194" y1="197" x2="137" y2="164" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 180 deg (left) -->
+  <line x1="185" y1="230" x2="120" y2="230" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 210 deg -->
+  <line x1="194" y1="263" x2="137" y2="296" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 240 deg -->
+  <line x1="217" y1="286" x2="184" y2="343" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 270 deg (down) -->
+  <line x1="250" y1="295" x2="250" y2="360" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 300 deg -->
+  <line x1="283" y1="286" x2="316" y2="343" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+  <!-- 330 deg -->
+  <line x1="306" y1="263" x2="363" y2="296" stroke="#e9c46a" stroke-width="1.6" marker-end="url(#arrowGold)" filter="url(#glowGold)"/>
+
+  <!-- External E-field label -->
+  <text x="390" y="136" font-family="Georgia, serif" font-size="11" fill="#e9c46a" font-weight="bold">External E-field</text>
+  <text x="390" y="152" font-family="Georgia, serif" font-size="10" fill="#e9c46a">(Coulomb: 1/r&#xb2;)</text>
+
+  <!-- Electron properties labels -->
+  <text x="250" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#e9c46a" font-weight="bold">Q = &#xb1;e</text>
+  <text x="250" y="416" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4ade80">Charged &#x2192; Detectable</text>
+  <text x="250" y="436" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#666" font-style="italic">E and B fields LINKED</text>
+
+
+  <!-- ==================== DIVIDER ==================== -->
+  <line x1="500" y1="30" x2="500" y2="460" stroke="#bbb" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="500" y="248" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#666" font-weight="bold">vs</text>
+
+
+  <!-- ==================== RIGHT PANEL: DARK MATTER (H = 0) ==================== -->
+
+  <!-- Panel title -->
+  <text x="750" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#6b7280" letter-spacing="2">DARK MATTER</text>
+  <text x="750" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#222" font-style="italic">H = 0 (trefoil knot &#x2014; 3 lobes)</text>
+
+  <!-- Dashed lines connecting the 3 lobes (trefoil skeleton) -->
+  <path d="M 750,155 Q 690,210 678,260" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,3" opacity="0.35"/>
+  <path d="M 678,260 Q 750,290 822,260" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,3" opacity="0.35"/>
+  <path d="M 822,260 Q 810,210 750,155" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,3" opacity="0.35"/>
+
+  <!-- ===== LOBE 1 (top) ===== -->
+  <g transform="translate(750, 155)">
+    <circle r="30" fill="#d8cce8" stroke="#a855f7" stroke-width="2" filter="url(#torusGlow)"/>
+    <!-- Poloidal E-field circulation -->
+    <path d="M -6,-24 A 20,20 0 0,1 20,-6" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M 24,6 A 20,20 0 0,1 6,24" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M -20,6 A 20,20 0 0,1 -6,-24" fill="none" stroke="#8b5e50" stroke-width="1.3" opacity="0.5"/>
+    <!-- B dot (toroidal, out of page) -->
+    <circle r="4.5" fill="none" stroke="#1f7a6f" stroke-width="1" opacity="0.5"/>
+    <circle r="1.5" fill="#1f7a6f" opacity="0.5"/>
+    <!-- Outward E contribution arrow (pointing UP) -->
+    <line x1="0" y1="-34" x2="0" y2="-58" stroke="#e9c46a" stroke-width="1.8" marker-end="url(#arrowGold)" opacity="0.8"/>
+  </g>
+  <text x="750" y="119" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#e9c46a" font-weight="bold">E&#x2081;</text>
+
+  <!-- ===== LOBE 2 (bottom-left) ===== -->
+  <g transform="translate(678, 260)">
+    <circle r="30" fill="#d8cce8" stroke="#a855f7" stroke-width="2" filter="url(#torusGlow)"/>
+    <!-- Poloidal E-field circulation -->
+    <path d="M -6,-24 A 20,20 0 0,1 20,-6" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M 24,6 A 20,20 0 0,1 6,24" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M -20,6 A 20,20 0 0,1 -6,-24" fill="none" stroke="#8b5e50" stroke-width="1.3" opacity="0.5"/>
+    <!-- B dot -->
+    <circle r="4.5" fill="none" stroke="#1f7a6f" stroke-width="1" opacity="0.5"/>
+    <circle r="1.5" fill="#1f7a6f" opacity="0.5"/>
+    <!-- Outward E contribution arrow (pointing DOWN-LEFT, ~210 deg) -->
+    <line x1="-17" y1="29" x2="-38" y2="50" stroke="#e9c46a" stroke-width="1.8" marker-end="url(#arrowGold)" opacity="0.8"/>
+  </g>
+  <text x="640" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#e9c46a" font-weight="bold">E&#x2082;</text>
+
+  <!-- ===== LOBE 3 (bottom-right) ===== -->
+  <g transform="translate(822, 260)">
+    <circle r="30" fill="#d8cce8" stroke="#a855f7" stroke-width="2" filter="url(#torusGlow)"/>
+    <!-- Poloidal E-field circulation -->
+    <path d="M -6,-24 A 20,20 0 0,1 20,-6" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M 24,6 A 20,20 0 0,1 6,24" fill="none" stroke="#8b5e50" stroke-width="1.3" marker-end="url(#arrowDMCoral)" opacity="0.7"/>
+    <path d="M -20,6 A 20,20 0 0,1 -6,-24" fill="none" stroke="#8b5e50" stroke-width="1.3" opacity="0.5"/>
+    <!-- B dot -->
+    <circle r="4.5" fill="none" stroke="#1f7a6f" stroke-width="1" opacity="0.5"/>
+    <circle r="1.5" fill="#1f7a6f" opacity="0.5"/>
+    <!-- Outward E contribution arrow (pointing DOWN-RIGHT, ~330 deg) -->
+    <line x1="17" y1="29" x2="38" y2="50" stroke="#e9c46a" stroke-width="1.8" marker-end="url(#arrowGold)" opacity="0.8"/>
+  </g>
+  <text x="860" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#e9c46a" font-weight="bold">E&#x2083;</text>
+
+  <!-- ===== VECTOR CANCELLATION DIAGRAM ===== -->
+  <!-- At a distant measurement point, show E1+E2+E3 = 0 as a closed triangle -->
+  <g transform="translate(750, 375)">
+    <!-- Label above -->
+    <text x="0" y="-28" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888" font-style="italic">At distance r &#x226B; R:</text>
+    <!-- Triangle of vectors (closed = zero sum) -->
+    <!-- E1 vector (pointing up, gold) -->
+    <line x1="0" y1="18" x2="0" y2="-12" stroke="#e9c46a" stroke-width="2" marker-end="url(#arrowGold)" opacity="0.8"/>
+    <text x="6" y="-2" font-family="Georgia, serif" font-size="8" fill="#e9c46a">E&#x2081;</text>
+    <!-- E2 vector (from tip of E1, pointing down-left) -->
+    <line x1="0" y1="-12" x2="-26" y2="3" stroke="#e9c46a" stroke-width="2" marker-end="url(#arrowGold)" opacity="0.8"/>
+    <text x="-22" y="-6" font-family="Georgia, serif" font-size="8" fill="#e9c46a">E&#x2082;</text>
+    <!-- E3 vector (from tip of E2, back to origin = closed triangle) -->
+    <line x1="-26" y1="3" x2="0" y2="18" stroke="#e9c46a" stroke-width="2" marker-end="url(#arrowGold)" opacity="0.8"/>
+    <text x="-20" y="16" font-family="Georgia, serif" font-size="8" fill="#e9c46a">E&#x2083;</text>
+    <!-- Result label -->
+    <text x="30" y="8" font-family="Georgia, serif" font-size="12" fill="#ef4444" font-weight="bold">&#x2211; = 0</text>
+  </g>
+
+  <!-- ===== EXPLANATION LABEL ===== -->
+  <text x="750" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#888">3-fold symmetry &#x2192; E-field contributions cancel</text>
+
+  <!-- Dark matter properties labels -->
+  <text x="750" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#6b7280" font-weight="bold">Q = 0    (Net E = 0 at distance)</text>
+  <text x="750" y="456" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#ef4444">Neutral &#x2192; Invisible to EM detection</text>
+
+
+  <!-- ==================== KEY INSIGHT BOX ==================== -->
+  <rect x="60" y="468" width="880" height="62" rx="6" ry="6" fill="#e0e4f4" stroke="#a855f7" stroke-width="1.2" opacity="0.9"/>
+
+  <text x="500" y="490" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#7c5abf" font-weight="bold">The Hopf linking number H determines charge:</text>
+  <text x="500" y="510" text-anchor="middle" font-family="Georgia, serif" font-size="11.5" fill="#222">
+    H = 0  &#x2192;  knot symmetry  &#x2192;  E-fields cancel at distance  &#x2192;  no net charge  &#x2192;  invisible to EM experiments  &#x2192;  <tspan font-weight="bold" fill="#a855f7">DARK MATTER</tspan>
+  </text>
+
+  <!-- ==================== FIGURE CAPTION ==================== -->
+  <text x="500" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#666" font-style="italic">
+    Figure 4: Cross-section comparison &#x2014; Electron (H = &#xb1;1) has external Coulomb field;
+  </text>
+  <text x="500" y="578" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#666" font-style="italic">
+    Dark matter (H = 0): 3-fold knot symmetry causes E-field cancellation at distance
+  </text>
+
+</svg>

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Credentials - NEVER commit
+**/remote_run.py
+
+# Large binary checkpoints (track separately or use git-lfs)
+*.npz
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Obsidian / Smart Environment
+.obsidian/
+.smart-env/
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Zenodo upload instructions (contains specific URLs)
+**/zenodo.md
+**/Dark_Matter_Zenodo_Upload.md
+
+# PDFs of old revisions (keep only current)
+*_R3*.pdf
+
+# Claude project files (AI-specific, not for public repo)
+**/CLAUDE.md

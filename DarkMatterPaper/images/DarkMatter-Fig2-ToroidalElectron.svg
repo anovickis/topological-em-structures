@@ -1,0 +1,507 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <!-- Arrowhead markers -->
+    <marker id="arrowB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2a9d8f"/>
+    </marker>
+    <marker id="arrowE" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e76f51"/>
+    </marker>
+    <marker id="arrowDim" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#e9c46a"/>
+    </marker>
+    <marker id="arrowDimRev" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="8 0, 0 3, 8 6" fill="#e9c46a"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e9c46a"/>
+    </marker>
+
+    <!-- Glow filters -->
+    <filter id="glowB" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowE" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="1000" height="800" fill="#f0f4ff"/>
+
+  <!-- Title -->
+  <text x="450" y="38" font-family="Georgia, serif" font-size="20" fill="#222" text-anchor="middle" font-weight="bold">Toroidal Electron Model</text>
+  <text x="450" y="60" font-family="Georgia, serif" font-size="13" fill="#555" text-anchor="middle" font-style="italic">Electromagnetic energy confined in a torus with linked E and B fields</text>
+
+  <!-- ============================================================ -->
+  <!-- TORUS: FEA-style mesh surface                                -->
+  <!-- Center at (450, 340), R=160, r=55, tilt=25deg                -->
+  <!-- Projection: sx = 450 + x3d                                  -->
+  <!--             sy = 340 + y3d*0.4226 - z3d*0.9063              -->
+  <!-- sin(25)=0.4226, cos(25)=0.9063                              -->
+  <!-- ============================================================ -->
+
+  <!-- Torus body fill — top surface between outer and inner silhouettes -->
+  <g transform="translate(450, 340)">
+    <!-- Top surface fill -->
+    <path d="M -215,0 A 215,91 0 0,1 215,0 A 55,62 0 0,1 105,0 A 105,44 0 0,0 -105,0 A 55,62 0 0,1 -215,0 Z"
+          fill="#d8cce8" fill-opacity="0.5" stroke="none"/>
+    <!-- Bottom (front) surface fill -->
+    <path d="M -215,0 A 215,91 0 0,0 215,0 A 55,62 0 0,0 105,0 A 105,44 0 0,1 -105,0 A 55,62 0 0,0 -215,0 Z"
+          fill="#d8cce8" fill-opacity="0.4" stroke="none"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- FEA MESH — Toroidal lines (constant phi, going around donut) -->
+  <!-- These are ellipses at different phi (tube angle) positions   -->
+  <!-- ============================================================ -->
+
+  <!-- At each phi, the toroidal line is an ellipse with:
+       semi-major-x = R + r*cos(phi)
+       semi-major-y = (R + r*cos(phi))*sin(25)
+       vertical offset = -r*sin(phi)*cos(25)
+       Front half: bottom arc when phi in [0,pi], top arc when phi in [pi,2pi] -->
+
+  <g id="mesh-toroidal" transform="translate(450, 340)">
+    <!-- phi=0 (outer equator of tube): rx=215, ry=90.8, cy_offset=0 -->
+    <!-- Front (visible) arc -->
+    <path d="M -215,0 A 215,90.8 0 0,0 215,0" fill="none" stroke="#a855f7" stroke-width="1.0" opacity="0.55"/>
+    <!-- Back (hidden) arc -->
+    <path d="M -215,0 A 215,90.8 0 0,1 215,0" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3"/>
+
+    <!-- phi=pi/6 (30deg): R+r*cos30=160+47.6=207.6, offset=-r*sin30*cos25=-55*0.5*0.906=-24.9 -->
+    <path d="M -207.6,-24.9 A 207.6,87.7 0 0,0 207.6,-24.9" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -207.6,-24.9 A 207.6,87.7 0 0,1 207.6,-24.9" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=pi/3 (60deg): R+r*cos60=160+27.5=187.5, offset=-55*sin60*0.906=-55*0.866*0.906=-43.2 -->
+    <path d="M -187.5,-43.2 A 187.5,79.2 0 0,0 187.5,-43.2" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -187.5,-43.2 A 187.5,79.2 0 0,1 187.5,-43.2" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=pi/2 (90deg, top of tube): R+r*0=160, offset=-55*1*0.906=-49.8 -->
+    <path d="M -160,-49.8 A 160,67.6 0 0,0 160,-49.8" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -160,-49.8 A 160,67.6 0 0,1 160,-49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=2pi/3 (120deg): R+r*cos120=160-27.5=132.5, offset=-55*sin120*0.906=-43.2 -->
+    <path d="M -132.5,-43.2 A 132.5,56.0 0 0,0 132.5,-43.2" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -132.5,-43.2 A 132.5,56.0 0 0,1 132.5,-43.2" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=5pi/6 (150deg): R+r*cos150=160-47.6=112.4, offset=-55*sin150*0.906=-24.9 -->
+    <path d="M -112.4,-24.9 A 112.4,47.5 0 0,0 112.4,-24.9" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -112.4,-24.9 A 112.4,47.5 0 0,1 112.4,-24.9" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=pi (inner equator of tube, hole side): R-r=105, offset=0 -->
+    <path d="M -105,0 A 105,44.3 0 0,0 105,0" fill="none" stroke="#a855f7" stroke-width="1.0" opacity="0.55"/>
+    <path d="M -105,0 A 105,44.3 0 0,1 105,0" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3"/>
+
+    <!-- phi=7pi/6 (210deg): R+r*cos210=160-47.6=112.4, offset=-55*sin210*0.906=+24.9 -->
+    <path d="M -112.4,24.9 A 112.4,47.5 0 0,0 112.4,24.9" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -112.4,24.9 A 112.4,47.5 0 0,1 112.4,24.9" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=4pi/3 (240deg): R+r*cos240=132.5, offset=+43.2 -->
+    <path d="M -132.5,43.2 A 132.5,56.0 0 0,0 132.5,43.2" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -132.5,43.2 A 132.5,56.0 0 0,1 132.5,43.2" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=3pi/2 (270deg, bottom of tube): R+r*0=160, offset=+49.8 -->
+    <path d="M -160,49.8 A 160,67.6 0 0,0 160,49.8" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -160,49.8 A 160,67.6 0 0,1 160,49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=5pi/3 (300deg): offset=-43.2 for 60deg -> +43.2... no: sin(300)=-0.866, so offset=+43.2 -->
+    <!-- Actually: sin(300deg)=sin(-60deg)=-0.866, offset = -(-0.866)*55*0.906 = +43.2 -->
+    <!-- R+r*cos300=R+r*cos(-60)=187.5 -->
+    <path d="M -187.5,43.2 A 187.5,79.2 0 0,0 187.5,43.2" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -187.5,43.2 A 187.5,79.2 0 0,1 187.5,43.2" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+
+    <!-- phi=11pi/6 (330deg): cos330=0.866->207.6, sin330=-0.5, offset=+24.9 -->
+    <path d="M -207.6,24.9 A 207.6,87.7 0 0,0 207.6,24.9" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45"/>
+    <path d="M -207.6,24.9 A 207.6,87.7 0 0,1 207.6,24.9" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.18" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- FEA MESH — Poloidal lines (constant theta, around tube)      -->
+  <!-- At each theta, the cross-section is a circle in the plane    -->
+  <!-- perpendicular to the toroidal direction.                     -->
+  <!-- Projected as tilted ellipses at various positions.           -->
+  <!-- ============================================================ -->
+
+  <!-- For poloidal line at angle theta:
+       Center of tube in 2D: cx = 450 + R*cos(theta), cy = 340 + R*sin(theta)*0.4226
+       The cross-section ellipse semi-axes depend on viewing angle.
+       In the plane perpendicular to the toroidal direction at theta:
+         - One axis is along the radial direction (from torus center): always has full r=55 projected
+         - Other axis is along z: always r*cos(tilt) in the y_screen direction
+       The radial direction at theta has components: (cos(theta), sin(theta), 0) in 3D
+       Projected to screen: dx_screen = cos(theta), dy_screen = sin(theta)*sin(25)
+       The z-direction projects to: dx=0, dy=-cos(25)
+       So the ellipse axes in screen coords:
+         axis1: 55*(cos(theta), sin(theta)*0.4226) — radial
+         axis2: 55*(0, -0.9063) — vertical
+       This is a general ellipse; we use the SVG ellipse with rotation.
+
+       For simplicity, approximate each poloidal cross-section as an ellipse.
+       At theta=0 or pi, the radial direction is horizontal -> ellipse with rx=55, ry=55*0.906=49.8
+       At theta=pi/2, radial direction is vertical (y3d)->screen dy=55*0.4226=23.2, and z-axis gives ry=49.8
+       So it becomes roughly a vertical ellipse with some tilt.
+
+       For visual quality, I'll draw these as tilted ellipses using transform rotate. -->
+
+  <!-- 24 poloidal cross-section lines -->
+  <!-- theta = 0 (right): center (610, 340) -->
+  <ellipse cx="610" cy="340" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45" transform="rotate(0, 610, 340)"/>
+
+  <!-- theta = pi/12 = 15deg: center_x=450+160*cos15=450+154.5=604.5, center_y=340+160*sin15*0.4226=340+17.5=357.5 -->
+  <!-- Radial angle in screen: atan2(sin15*0.4226, cos15) = atan2(0.1094, 0.966) ~ 6.5deg -->
+  <ellipse cx="604.5" cy="357.5" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-6.5, 604.5, 357.5)"/>
+
+  <!-- theta = pi/6 = 30deg: cx=450+160*0.866=588.6, cy=340+160*0.5*0.4226=340+33.8=373.8 -->
+  <ellipse cx="588.6" cy="373.8" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-12.5, 588.6, 373.8)"/>
+
+  <!-- theta = pi/4 = 45deg: cx=450+113.1=563.1, cy=340+160*0.707*0.4226=340+47.8=387.8 -->
+  <ellipse cx="563.1" cy="387.8" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-17.5, 563.1, 387.8)"/>
+
+  <!-- theta = pi/3 = 60deg: cx=450+80=530, cy=340+160*0.866*0.4226=340+58.6=398.6 -->
+  <ellipse cx="530" cy="398.6" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-21, 530, 398.6)"/>
+
+  <!-- theta = 5pi/12 = 75deg: cx=450+41.4=491.4, cy=340+65.3=405.3 -->
+  <ellipse cx="491.4" cy="405.3" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-23, 491.4, 405.3)"/>
+
+  <!-- theta = pi/2 = 90deg: cx=450+0=450, cy=340+67.6=407.6 -->
+  <ellipse cx="450" cy="407.6" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45" transform="rotate(-24, 450, 407.6)"/>
+
+  <!-- theta = 7pi/12 = 105deg: cx=450-41.4=408.6, cy=405.3 -->
+  <ellipse cx="408.6" cy="405.3" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-23, 408.6, 405.3)"/>
+
+  <!-- theta = 2pi/3 = 120deg: cx=450-80=370, cy=398.6 -->
+  <ellipse cx="370" cy="398.6" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-21, 370, 398.6)"/>
+
+  <!-- theta = 3pi/4 = 135deg: cx=450-113.1=336.9, cy=387.8 -->
+  <ellipse cx="336.9" cy="387.8" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-17.5, 336.9, 387.8)"/>
+
+  <!-- theta = 5pi/6 = 150deg: cx=450-138.6=311.4, cy=373.8 -->
+  <ellipse cx="311.4" cy="373.8" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-12.5, 311.4, 373.8)"/>
+
+  <!-- theta = 11pi/12 = 165deg: cx=450-154.5=295.5, cy=357.5 -->
+  <ellipse cx="295.5" cy="357.5" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.4" transform="rotate(-6.5, 295.5, 357.5)"/>
+
+  <!-- theta = pi = 180deg (left): cx=450-160=290, cy=340 -->
+  <ellipse cx="290" cy="340" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.45" transform="rotate(0, 290, 340)"/>
+
+  <!-- theta = 13pi/12 = 195deg: cx=450-154.5=295.5, cy=340-17.5=322.5 -->
+  <ellipse cx="295.5" cy="322.5" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(6.5, 295.5, 322.5)"/>
+
+  <!-- theta = 7pi/6 = 210deg: cx=311.4, cy=306.2 -->
+  <ellipse cx="311.4" cy="306.2" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(12.5, 311.4, 306.2)"/>
+
+  <!-- theta = 5pi/4 = 225deg: cx=336.9, cy=292.2 -->
+  <ellipse cx="336.9" cy="292.2" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(17.5, 336.9, 292.2)"/>
+
+  <!-- theta = 4pi/3 = 240deg: cx=370, cy=281.4 -->
+  <ellipse cx="370" cy="281.4" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(21, 370, 281.4)"/>
+
+  <!-- theta = 17pi/12 = 255deg: cx=408.6, cy=274.7 -->
+  <ellipse cx="408.6" cy="274.7" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(23, 408.6, 274.7)"/>
+
+  <!-- theta = 3pi/2 = 270deg: cx=450, cy=272.4 -->
+  <ellipse cx="450" cy="272.4" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(24, 450, 272.4)"/>
+
+  <!-- theta = 19pi/12 = 285deg: cx=491.4, cy=274.7 -->
+  <ellipse cx="491.4" cy="274.7" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(23, 491.4, 274.7)"/>
+
+  <!-- theta = 5pi/3 = 300deg: cx=530, cy=281.4 -->
+  <ellipse cx="530" cy="281.4" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(21, 530, 281.4)"/>
+
+  <!-- theta = 7pi/4 = 315deg: cx=563.1, cy=292.2 -->
+  <ellipse cx="563.1" cy="292.2" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(17.5, 563.1, 292.2)"/>
+
+  <!-- theta = 11pi/6 = 330deg: cx=588.6, cy=306.2 -->
+  <ellipse cx="588.6" cy="306.2" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(12.5, 588.6, 306.2)"/>
+
+  <!-- theta = 23pi/12 = 345deg: cx=604.5, cy=322.5 -->
+  <ellipse cx="604.5" cy="322.5" rx="55" ry="49.8" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3" transform="rotate(6.5, 604.5, 322.5)"/>
+
+
+  <!-- ============================================================ -->
+  <!-- B-FIELD (Poloidal): loops circulating around tube cross-section -->
+  <!-- Teal #2a9d8f, at several theta positions on the front side    -->
+  <!-- ============================================================ -->
+
+  <g id="B-field" filter="url(#glowB)">
+    <!-- B-loop at theta=0 (right side): centered at (610, 340) -->
+    <!-- Loop at 72% of tube radius: loop_r = 55*0.72 = 39.6 -->
+    <!-- Projected: rx=39.6, ry=39.6*0.906=35.9 -->
+    <ellipse cx="610" cy="340" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="2.2" opacity="0.85"/>
+    <!-- Arrowhead at top of this loop (phi~pi/4) -->
+    <polygon points="634,318 628,314 630,322" fill="#2a9d8f" opacity="0.9"/>
+
+    <!-- B-loop at theta=pi/3 (60deg): centered at (530, 398.6) -->
+    <ellipse cx="530" cy="398.6" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="2.2" opacity="0.85"
+             transform="rotate(-21, 530, 398.6)"/>
+    <polygon points="554,378 548,374 550,382" fill="#2a9d8f" opacity="0.9"/>
+
+    <!-- B-loop at theta=2pi/3 (120deg): centered at (370, 398.6) -->
+    <ellipse cx="370" cy="398.6" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="2.2" opacity="0.85"
+             transform="rotate(-21, 370, 398.6)"/>
+    <polygon points="394,378 388,374 390,382" fill="#2a9d8f" opacity="0.9"/>
+
+    <!-- B-loop at theta=pi (left side, 180deg): centered at (290, 340) -->
+    <ellipse cx="290" cy="340" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="2.2" opacity="0.85"/>
+    <polygon points="314,318 308,314 310,322" fill="#2a9d8f" opacity="0.9"/>
+
+    <!-- B-loop at theta=4pi/3 (240deg, back-left): centered at (370, 281.4) — BACK -->
+    <ellipse cx="370" cy="281.4" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="1.5" opacity="0.2"
+             stroke-dasharray="4,3" transform="rotate(21, 370, 281.4)"/>
+
+    <!-- B-loop at theta=5pi/3 (300deg, back-right): centered at (530, 281.4) — BACK -->
+    <ellipse cx="530" cy="281.4" rx="39.6" ry="35.9" fill="none" stroke="#2a9d8f" stroke-width="1.5" opacity="0.2"
+             stroke-dasharray="4,3" transform="rotate(21, 530, 281.4)"/>
+  </g>
+
+  <!-- B-field label -->
+  <text x="672" y="305" font-family="Georgia, serif" font-size="15" fill="#2a9d8f" font-weight="bold" font-style="italic">B</text>
+  <text x="672" y="322" font-family="Georgia, serif" font-size="12" fill="#2a9d8f">(poloidal)</text>
+  <line x1="668" y1="312" x2="648" y2="325" stroke="#2a9d8f" stroke-width="0.8" opacity="0.5" stroke-dasharray="3,2"/>
+
+  <!-- ============================================================ -->
+  <!-- E-FIELD (External Coulomb): radial arrows emanating outward   -->
+  <!-- Coral #e76f51 — like the electric field of an electron        -->
+  <!-- ============================================================ -->
+
+  <g id="E-field-external" filter="url(#glowE)">
+    <!-- Front-facing radial E-field arrows (visible) -->
+    <!-- theta=0 (right) -->
+    <line x1="670" y1="340" x2="730" y2="340" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=30 (front-right) -->
+    <line x1="639" y1="379" x2="690" y2="396" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=60 -->
+    <line x1="562" y1="419" x2="598" y2="451" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=90 (bottom/front) -->
+    <line x1="450" y1="434" x2="450" y2="478" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=120 -->
+    <line x1="338" y1="419" x2="302" y2="451" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=150 (front-left) -->
+    <line x1="261" y1="379" x2="210" y2="396" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+    <!-- theta=180 (left) -->
+    <line x1="230" y1="340" x2="170" y2="340" stroke="#e76f51" stroke-width="2" opacity="0.8" marker-end="url(#arrowE)"/>
+
+    <!-- Back-facing radial E-field arrows (behind torus, dashed/faint) -->
+    <!-- theta=210 -->
+    <line x1="261" y1="301" x2="210" y2="284" stroke="#e76f51" stroke-width="1.2" opacity="0.2" stroke-dasharray="4,3"/>
+    <!-- theta=270 (top/back) -->
+    <line x1="450" y1="246" x2="450" y2="202" stroke="#e76f51" stroke-width="1.2" opacity="0.2" stroke-dasharray="4,3"/>
+    <!-- theta=330 -->
+    <line x1="639" y1="301" x2="690" y2="284" stroke="#e76f51" stroke-width="1.2" opacity="0.2" stroke-dasharray="4,3"/>
+  </g>
+
+  <!-- E-field label -->
+  <text x="740" y="380" font-family="Georgia, serif" font-size="15" fill="#e76f51" font-weight="bold" font-style="italic">E</text>
+  <text x="740" y="397" font-family="Georgia, serif" font-size="12" fill="#e76f51">(Coulomb)</text>
+
+
+  <!-- ============================================================ -->
+  <!-- PHOTON HELICAL PATH on torus surface                         -->
+  <!-- theta from 0 to pi, phi = 7*theta (3.5 loops in half-turn)  -->
+  <!-- Gold #e9c46a, dashed with glow                               -->
+  <!-- ============================================================ -->
+
+  <!-- Photon path: parametric with winding number ~3.5 poloidal per half toroidal turn -->
+  <!-- Key computed points (theta, phi=7*theta):
+       theta=0:     (610, 340) — starting point
+       theta=pi/16: x3d=(R+r*cos(7pi/16))*cos(pi/16), etc.
+       ... computing many points along the path -->
+
+  <!-- I'll trace the path with enough points for smooth appearance -->
+  <!-- Using: sx = 450 + (160+55*cos(7*t))*cos(t), sy = 340 + (160+55*cos(7*t))*sin(t)*0.4226 - 55*sin(7*t)*0.9063 -->
+
+  <g id="photon-path">
+    <!-- Photon path: travels at center of tube cross-section around the torus -->
+    <!-- Front arc (visible): bottom half of the ellipse -->
+    <path d="M 610,340 A 160,67.6 0 0,0 290,340" fill="none" stroke="#e9c46a" stroke-width="2.5" opacity="0.9" stroke-dasharray="8,4" filter="url(#glowGold)"/>
+    <!-- Direction arrowhead at the middle of front arc (theta=pi/2, bottom) — pointing leftward -->
+    <polygon points="444,407.6 454,403.6 454,411.6" fill="#e9c46a" opacity="0.9"/>
+    <!-- Back arc (hidden): top half of the ellipse, dashed and faint -->
+    <path d="M 290,340 A 160,67.6 0 0,0 610,340" fill="none" stroke="#e9c46a" stroke-width="1.5" opacity="0.3" stroke-dasharray="5,4"/>
+  </g>
+
+  <!-- Photon path label -->
+  <text x="420" y="250" font-family="Georgia, serif" font-size="11" fill="#e9c46a" opacity="0.9">Photon path</text>
+  <text x="420" y="263" font-family="Georgia, serif" font-size="10" fill="#e9c46a" opacity="0.7">(at center of tube cross-section)</text>
+  <line x1="440" y1="267" x2="450" y2="285" stroke="#e9c46a" stroke-width="0.7" opacity="0.4" stroke-dasharray="3,2"/>
+
+
+  <!-- ============================================================ -->
+  <!-- CROSS-SECTION OVERLAY (right side, theta=0)                  -->
+  <!-- ============================================================ -->
+
+  <g id="cross-section">
+    <!-- Cut indicator on the torus at theta=0 -->
+    <!-- The cross-section plane shown as a faint glow on the tube -->
+    <ellipse cx="610" cy="340" rx="55" ry="49.8" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.2" opacity="0.4"/>
+
+    <!-- Connecting line from torus to exploded view -->
+    <line x1="668" y1="340" x2="755" y2="340" stroke="#888" stroke-width="0.8" opacity="0.3" stroke-dasharray="5,5"/>
+
+    <!-- Exploded cross-section circle -->
+    <circle cx="805" cy="340" r="48" fill="#e0e4f4" stroke="#a855f7" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- B-field arrows circulating around the cross-section (poloidal) -->
+    <!-- 8 arrows arranged in a circle -->
+    <!-- Arrow at 0deg (right): from (836,340) tangent upward -->
+    <line x1="838.6" y1="340" x2="837.6" y2="330.5" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="836.8,328 840.2,333 835.0,333" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 45deg -->
+    <line x1="828.8" y1="316.2" x2="822.0" y2="310.0" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="819.5,308.5 824.5,312.5 820.5,313.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 90deg (top) -->
+    <line x1="805" y1="306.4" x2="795.5" y2="307.4" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="793,306.6 797,310 794,311.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 135deg -->
+    <line x1="781.2" y1="316.2" x2="775.0" y2="322.0" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="773.5,324.5 777.5,319.5 776,323.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 180deg (left) -->
+    <line x1="771.4" y1="340" x2="772.4" y2="349.5" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="773.2,352 769.8,347 775.0,347" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 225deg -->
+    <line x1="781.2" y1="363.8" x2="788.0" y2="370.0" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="790.5,371.5 785.5,367.5 789.5,366.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 270deg (bottom) -->
+    <line x1="805" y1="373.6" x2="814.5" y2="372.6" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="817,373.4 813,370 816,368.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- Arrow at 315deg -->
+    <line x1="828.8" y1="363.8" x2="835.0" y2="358.0" stroke="#2a9d8f" stroke-width="2" opacity="0.8"/>
+    <polygon points="836.5,355.5 832.5,360.5 834.0,356.5" fill="#2a9d8f" opacity="0.8"/>
+
+    <!-- E-field arrows radiating outward from cross-section (Coulomb) -->
+    <line x1="840" y1="340" x2="862" y2="340" stroke="#e76f51" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowE)"/>
+    <line x1="805" y1="305" x2="805" y2="283" stroke="#e76f51" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowE)"/>
+    <line x1="770" y1="340" x2="748" y2="340" stroke="#e76f51" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowE)"/>
+    <line x1="805" y1="375" x2="805" y2="397" stroke="#e76f51" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowE)"/>
+
+    <!-- Cross-section labels -->
+    <text x="805" y="280" font-family="Georgia, serif" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Cross-section</text>
+    <text x="862" y="325" font-family="Georgia, serif" font-size="11" fill="#2a9d8f" font-weight="bold" font-style="italic">B</text>
+    <text x="870" y="344" font-family="Georgia, serif" font-size="11" fill="#e76f51" font-style="italic">E</text>
+  </g>
+
+
+  <!-- ============================================================ -->
+  <!-- DIMENSION LINES (gold #e9c46a)                               -->
+  <!-- ============================================================ -->
+
+  <!-- Major radius R: center (450,340) to tube center at theta=0 (610,340) -->
+  <!-- Drawn below the torus -->
+  <line x1="450" y1="485" x2="610" y2="485" stroke="#e9c46a" stroke-width="1.5"
+        marker-start="url(#arrowDimRev)" marker-end="url(#arrowDim)"/>
+  <!-- Tick marks -->
+  <line x1="450" y1="480" x2="450" y2="490" stroke="#e9c46a" stroke-width="1.2"/>
+  <line x1="610" y1="480" x2="610" y2="490" stroke="#e9c46a" stroke-width="1.2"/>
+  <!-- Dashed guide lines -->
+  <line x1="450" y1="345" x2="450" y2="478" stroke="#e9c46a" stroke-width="0.7" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="610" y1="395" x2="610" y2="478" stroke="#e9c46a" stroke-width="0.7" opacity="0.3" stroke-dasharray="4,3"/>
+  <!-- R label -->
+  <text x="530" y="479" font-family="Georgia, serif" font-size="14" fill="#e9c46a" text-anchor="middle" font-style="italic">R</text>
+  <text x="530" y="502" font-family="Georgia, serif" font-size="11" fill="#e9c46a" text-anchor="middle" opacity="0.85">R &#x2248; &#x03BB;<tspan dy="-4" font-size="8">C</tspan><tspan dy="4"> </tspan></text>
+
+  <!-- Minor radius r: at the cross-section (tube center to tube edge, vertical) -->
+  <!-- tube center at (610,340), tube top at (610, 340-49.8)=(610, 290.2) -->
+  <line x1="642" y1="340" x2="642" y2="290.2" stroke="#e9c46a" stroke-width="1.5"
+        marker-start="url(#arrowDimRev)" marker-end="url(#arrowDim)"/>
+  <line x1="638" y1="340" x2="646" y2="340" stroke="#e9c46a" stroke-width="1.2"/>
+  <line x1="638" y1="290.2" x2="646" y2="290.2" stroke="#e9c46a" stroke-width="1.2"/>
+  <!-- r label -->
+  <text x="656" y="312" font-family="Georgia, serif" font-size="14" fill="#e9c46a" font-style="italic">r</text>
+  <text x="656" y="296" font-family="Georgia, serif" font-size="11" fill="#e9c46a" opacity="0.85">&#x2248; r<tspan dy="4" font-size="8">e</tspan></text>
+
+  <!-- Center dot -->
+  <circle cx="450" cy="340" r="3" fill="#e9c46a" opacity="0.8"/>
+
+
+  <!-- ============================================================ -->
+  <!-- RATIO NOTE                                                    -->
+  <!-- ============================================================ -->
+
+  <g transform="translate(450, 540)">
+    <rect x="-125" y="-18" width="250" height="36" rx="6" fill="#e0e4f4" stroke="#e9c46a" stroke-width="1" opacity="0.7"/>
+    <text x="0" y="5" font-family="Georgia, serif" font-size="14" fill="#e9c46a" text-anchor="middle">
+      r / R = &#x03B1; &#x2248; 1/137
+    </text>
+  </g>
+
+
+  <!-- ============================================================ -->
+  <!-- HOPF LINKING INSET — bottom left                             -->
+  <!-- Two interlocked rings showing E-B linking                    -->
+  <!-- ============================================================ -->
+
+  <g transform="translate(135, 660)">
+    <rect x="-105" y="-55" width="210" height="115" rx="8" fill="#e0e4f4" stroke="#bbb" stroke-width="1"/>
+    <text x="0" y="-35" font-family="Georgia, serif" font-size="12" fill="#555" text-anchor="middle" font-weight="bold">Hopf Linking</text>
+
+    <!-- Ring 1 (E-field, coral) — horizontal ellipse -->
+    <!-- Back half (dashed, behind B ring) -->
+    <ellipse cx="-8" cy="10" rx="38" ry="18" fill="none" stroke="#e76f51" stroke-width="2" opacity="0.3"
+             stroke-dasharray="3,2"/>
+    <!-- Ring 2 (B-field, teal) — vertical ellipse (poloidal) -->
+    <ellipse cx="8" cy="10" rx="18" ry="34" fill="none" stroke="#2a9d8f" stroke-width="2.2" opacity="1"/>
+    <!-- Front half of Ring 1 (on top, creates linking illusion) -->
+    <path d="M -46,10 A 38,18 0 0,0 30,10" fill="none" stroke="#e76f51" stroke-width="2.5"/>
+
+    <!-- Labels -->
+    <text x="-55" y="-2" font-family="Georgia, serif" font-size="10" fill="#e76f51" font-weight="bold">E</text>
+    <text x="35" y="-20" font-family="Georgia, serif" font-size="10" fill="#2a9d8f" font-weight="bold">B</text>
+    <text x="0" y="55" font-family="Georgia, serif" font-size="9" fill="#555" text-anchor="middle" font-style="italic">Every E-line links every B-line</text>
+  </g>
+
+
+  <!-- ============================================================ -->
+  <!-- HOPF INVARIANT BOX — bottom right                            -->
+  <!-- ============================================================ -->
+
+  <g transform="translate(730, 655)">
+    <rect x="-155" y="-35" width="310" height="75" rx="8" fill="#e0e4f4" stroke="#a855f7" stroke-width="1.5" opacity="0.8"/>
+    <text x="0" y="-8" font-family="Georgia, serif" font-size="18" fill="#222" text-anchor="middle" font-weight="bold">
+      H = &#xB1;1  &#x2192;  Q = &#xB1;e
+    </text>
+    <text x="0" y="16" font-family="Georgia, serif" font-size="12" fill="#555" text-anchor="middle" font-style="italic">
+      Topological invariant &#x2192; quantized charge
+    </text>
+  </g>
+
+
+  <!-- ============================================================ -->
+  <!-- DIRECTION INDICATORS                                         -->
+  <!-- ============================================================ -->
+
+  <!-- Poloidal direction indicator near B-loop -->
+  <g transform="translate(660, 375)">
+    <path d="M 5,-18 A 14,14 0 0,1 14,4" fill="none" stroke="#2a9d8f" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowB)"/>
+    <text x="20" y="-3" font-family="Georgia, serif" font-size="9" fill="#2a9d8f" opacity="0.7">poloidal</text>
+  </g>
+
+  <!-- Coulomb (radial) direction indicator near E-field -->
+  <g transform="translate(350, 440)">
+    <line x1="-10" y1="0" x2="15" y2="0" stroke="#e76f51" stroke-width="1.5" opacity="0.7" marker-end="url(#arrowE)"/>
+    <text x="0" y="-8" font-family="Georgia, serif" font-size="9" fill="#e76f51" text-anchor="middle" opacity="0.7">Coulomb (radial)</text>
+  </g>
+
+
+  <!-- ============================================================ -->
+  <!-- CAPTION                                                       -->
+  <!-- ============================================================ -->
+
+  <text x="500" y="775" font-family="Georgia, serif" font-size="13" fill="#555" text-anchor="middle">
+    Figure 2: Toroidal electron &#x2014; E-field (external Coulomb) and B-field (poloidal) with Hopf linking H = &#xB1;1, showing photon helical path and cross-section
+  </text>
+
+</svg>

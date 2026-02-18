@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <marker id="axisArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0.5, 9 3.5, 0 6.5" fill="#555"/>
+    </marker>
+    <marker id="axisArrowE" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0.5, 9 3.5, 0 6.5" fill="#e76f51"/>
+    </marker>
+    <marker id="axisArrowB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0.5, 9 3.5, 0 6.5" fill="#2a9d8f"/>
+    </marker>
+    <marker id="propArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0.5, 11 4, 0 7.5" fill="#e8b930"/>
+    </marker>
+    <marker id="lamArrowL" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8 0.5, 1 3, 8 5.5" fill="#666"/>
+    </marker>
+    <marker id="lamArrowR" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0.5, 7 3, 0 5.5" fill="#666"/>
+    </marker>
+
+    <!-- E-field vector arrowhead (coral), pointing upward -->
+    <marker id="eArrowUp" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="0">
+      <polygon points="0 6, 3 0, 6 6" fill="#e76f51" opacity="0.85"/>
+    </marker>
+    <!-- E-field vector arrowhead (coral), pointing downward -->
+    <marker id="eArrowDown" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="0">
+      <polygon points="0 0, 3 6, 6 0" fill="#e76f51" opacity="0.85"/>
+    </marker>
+    <!-- B-field vector arrowhead (teal), pointing upward -->
+    <marker id="bArrowUp" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="0">
+      <polygon points="0 6, 3 0, 6 6" fill="#2a9d8f" opacity="0.85"/>
+    </marker>
+    <!-- B-field vector arrowhead (teal), pointing downward -->
+    <marker id="bArrowDown" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="0">
+      <polygon points="0 0, 3 6, 6 0" fill="#2a9d8f" opacity="0.85"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="#f0f4ff"/>
+
+  <!-- Propagation axis (dashed center line) -->
+  <line x1="135" y1="185" x2="825" y2="185" stroke="#bbb" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ==========================================================
+       E-FIELD VECTOR ARROWS
+       Vertical arrows from propagation axis showing field magnitude
+       Color: #e76f51 (coral), opacity 0.7
+       ========================================================== -->
+  <g id="e-field-vectors">
+    <line x1="170" y1="185" x2="170" y2="117.0" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="200" y1="185" x2="200" y2="95.9" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="230" y1="185" x2="230" y2="136.3" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="260" y1="185" x2="260" y2="210.4" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="290" y1="185" x2="290" y2="266.9" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="320" y1="185" x2="320" y2="266.9" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="350" y1="185" x2="350" y2="210.4" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="380" y1="185" x2="380" y2="136.3" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="410" y1="185" x2="410" y2="95.9" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="440" y1="185" x2="440" y2="117.0" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="500" y1="185" x2="500" y2="253.0" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="530" y1="185" x2="530" y2="274.1" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="560" y1="185" x2="560" y2="233.7" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="590" y1="185" x2="590" y2="159.6" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="620" y1="185" x2="620" y2="103.1" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="650" y1="185" x2="650" y2="103.1" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="680" y1="185" x2="680" y2="159.6" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowUp)"/>
+    <line x1="710" y1="185" x2="710" y2="233.7" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="740" y1="185" x2="740" y2="274.1" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+    <line x1="770" y1="185" x2="770" y2="253.0" stroke="#e76f51" stroke-width="1.8" opacity="0.7" marker-end="url(#eArrowDown)"/>
+  </g>
+
+  <!-- ==========================================================
+       E-FIELD: Electric field oscillating in the y-plane (vertical)
+       Color: #e76f51 (coral)
+       3 complete wavelengths, lambda = 220 px, half-lambda = 110 px
+       Amplitude: 90 px above/below center (y=185)
+       Zero crossings: x = 140, 250, 360, 470, 580, 690, 800
+       Bezier: half-sine C(x0+W/3, y0-4A/3)(x0+2W/3, y0-4A/3)(x0+W, y0)
+       W=110, 4A/3=120. Control y for up-half: 185-120=65, down-half: 185+120=305
+       ========================================================== -->
+  <path d="
+    M 140,185
+    C 177,65  213,65  250,185
+    C 287,305 323,305 360,185
+    C 397,65  433,65  470,185
+    C 507,305 543,305 580,185
+    C 617,65  653,65  690,185
+    C 727,305 763,305 800,185
+  " fill="none" stroke="#e76f51" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- E-field label -->
+  <text x="202" y="72" fill="#e76f51" font-family="Georgia, serif" font-size="22" font-weight="bold" font-style="italic">E</text>
+
+  <!-- Subtle dashed lines from E peaks to axis -->
+  <line x1="195" y1="97" x2="195" y2="185" stroke="#e76f51" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+  <line x1="415" y1="97" x2="415" y2="185" stroke="#e76f51" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+  <line x1="635" y1="97" x2="635" y2="185" stroke="#e76f51" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+
+  <!-- ==========================================================
+       B-FIELD VECTOR ARROWS
+       Arrows from propagation axis showing B field magnitude
+       in oblique z-direction (rendered as vertical for simplicity)
+       Color: #2a9d8f (teal), opacity 0.7
+       ========================================================== -->
+  <g id="b-field-vectors">
+    <line x1="170" y1="185" x2="170" y2="222.8" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="200" y1="185" x2="200" y2="234.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="230" y1="185" x2="230" y2="212.0" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="260" y1="185" x2="260" y2="170.9" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="290" y1="185" x2="290" y2="139.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="320" y1="185" x2="320" y2="139.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="350" y1="185" x2="350" y2="170.9" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="380" y1="185" x2="380" y2="212.0" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="410" y1="185" x2="410" y2="234.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="440" y1="185" x2="440" y2="222.8" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="500" y1="185" x2="500" y2="147.2" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="530" y1="185" x2="530" y2="135.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="560" y1="185" x2="560" y2="158.0" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="590" y1="185" x2="590" y2="199.1" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="620" y1="185" x2="620" y2="230.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="650" y1="185" x2="650" y2="230.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="680" y1="185" x2="680" y2="199.1" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowDown)"/>
+    <line x1="710" y1="185" x2="710" y2="158.0" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="740" y1="185" x2="740" y2="135.5" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+    <line x1="770" y1="185" x2="770" y2="147.2" stroke="#2a9d8f" stroke-width="1.8" opacity="0.7" marker-end="url(#bArrowUp)"/>
+  </g>
+
+  <!-- ==========================================================
+       B-FIELD: Magnetic field oscillating in the z-plane (perpendicular)
+       Color: #2a9d8f (teal)
+       In phase with E. Rendered in oblique projection: +z maps to
+       screen-downward, so when E peaks up, B peaks down on screen.
+       Amplitude: 50 px, 4A/3 = 67. Control y: down=252, up=118
+       ========================================================== -->
+  <path d="
+    M 140,185
+    C 177,252 213,252 250,185
+    C 287,118 323,118 360,185
+    C 397,252 433,252 470,185
+    C 507,118 543,118 580,185
+    C 617,252 653,252 690,185
+    C 727,118 763,118 800,185
+  " fill="none" stroke="#2a9d8f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- B-field label -->
+  <text x="202" y="264" fill="#2a9d8f" font-family="Georgia, serif" font-size="22" font-weight="bold" font-style="italic">B</text>
+
+  <!-- Subtle dashed lines from B peaks to axis -->
+  <line x1="195" y1="242" x2="195" y2="185" stroke="#2a9d8f" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+  <line x1="415" y1="242" x2="415" y2="185" stroke="#2a9d8f" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+  <line x1="635" y1="242" x2="635" y2="185" stroke="#2a9d8f" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+
+  <!-- ==========================================================
+       WAVELENGTH MARKER (lambda)
+       One full wavelength: x=140 to x=360 (two zero crossings apart)
+       ========================================================== -->
+  <line x1="140" y1="55" x2="360" y2="55" stroke="#666" stroke-width="1.5" marker-start="url(#lamArrowL)" marker-end="url(#lamArrowR)"/>
+  <line x1="140" y1="82" x2="140" y2="55" stroke="#666" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.6"/>
+  <line x1="360" y1="82" x2="360" y2="55" stroke="#666" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.6"/>
+  <text x="250" y="50" fill="#333" font-family="Georgia, serif" font-size="20" font-style="italic" text-anchor="middle">&#x03BB;</text>
+
+  <!-- ==========================================================
+       PROPAGATION DIRECTION ARROW (k vector)
+       ========================================================== -->
+  <line x1="600" y1="32" x2="770" y2="32" stroke="#e8b930" stroke-width="2" marker-end="url(#propArrow)"/>
+  <text x="606" y="24" fill="#e8b930" font-family="Georgia, serif" font-size="13.5" font-style="italic">Direction of propagation (k)</text>
+
+  <!-- ==========================================================
+       AXIS LABELS ON MAIN DIAGRAM
+       ========================================================== -->
+  <!-- x-axis label at end of propagation line -->
+  <text x="832" y="189" fill="#555" font-family="Georgia, serif" font-size="16" font-style="italic">x</text>
+
+  <!-- y-axis label (E-field direction) at wave origin -->
+  <line x1="140" y1="185" x2="140" y2="80" stroke="#999" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="131" y="74" fill="#e76f51" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="end">y (E)</text>
+
+  <!-- z-axis label (B-field direction) at wave origin -->
+  <line x1="140" y1="185" x2="140" y2="268" stroke="#999" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="131" y="282" fill="#2a9d8f" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="end">z (B)</text>
+
+  <!-- ==========================================================
+       COORDINATE AXES INDICATOR (bottom-left corner)
+       Small 3D axes showing x, y, z orientation
+       ========================================================== -->
+  <g transform="translate(56, 345)">
+    <!-- x-axis (propagation, horizontal right) -->
+    <line x1="0" y1="0" x2="44" y2="0" stroke="#555" stroke-width="1.5" marker-end="url(#axisArrow)"/>
+    <text x="52" y="5" fill="#555" font-family="Georgia, serif" font-size="12" font-style="italic">x</text>
+    <!-- y-axis (E-field, vertical up) -->
+    <line x1="0" y1="0" x2="0" y2="-44" stroke="#e76f51" stroke-width="1.5" marker-end="url(#axisArrowE)"/>
+    <text x="0" y="-50" fill="#e76f51" font-family="Georgia, serif" font-size="12" font-style="italic" text-anchor="middle">y</text>
+    <!-- z-axis (B-field, oblique down-left for depth) -->
+    <line x1="0" y1="0" x2="-30" y2="26" stroke="#2a9d8f" stroke-width="1.5" marker-end="url(#axisArrowB)"/>
+    <text x="-40" y="36" fill="#2a9d8f" font-family="Georgia, serif" font-size="12" font-style="italic">z</text>
+  </g>
+
+  <!-- ==========================================================
+       CAPTION
+       ========================================================== -->
+  <text x="450" y="380" fill="#666" font-family="Georgia, serif" font-size="13" text-anchor="middle" letter-spacing="0.3">Figure 1: Electromagnetic wave &#x2014; E and B fields oscillating perpendicular to propagation direction</text>
+
+</svg>

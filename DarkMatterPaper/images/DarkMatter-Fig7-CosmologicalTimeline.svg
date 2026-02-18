@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" width="1100" height="500">
+  <defs>
+    <!-- Background -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fff0f0"/>
+      <stop offset="40%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#e8eeff"/>
+    </linearGradient>
+    <!-- Temperature bar gradient -->
+    <linearGradient id="tempGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff2200"/>
+      <stop offset="30%" stop-color="#ff6633"/>
+      <stop offset="60%" stop-color="#8866cc"/>
+      <stop offset="100%" stop-color="#2244aa"/>
+    </linearGradient>
+    <!-- Dark matter stream gradient -->
+    <linearGradient id="darkStream" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a9e9e"/>
+      <stop offset="100%" stop-color="#607888"/>
+    </linearGradient>
+    <!-- Ordinary matter stream gradient -->
+    <linearGradient id="ordStream" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e06050"/>
+      <stop offset="100%" stop-color="#d4a040"/>
+    </linearGradient>
+    <!-- Phase 1 mixed background -->
+    <radialGradient id="plasmaGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffddcc" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffddcc" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Arrow marker -->
+    <marker id="arrowHead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#334"/>
+    </marker>
+    <marker id="arrowHeadTeal" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2a7a7a"/>
+    </marker>
+    <marker id="arrowHeadCoral" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c04030"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="500" fill="url(#bgGrad)" rx="6"/>
+
+  <!-- ================================================================ -->
+  <!-- TEMPERATURE SCALE (top bar) -->
+  <!-- ================================================================ -->
+  <rect x="60" y="28" width="980" height="8" rx="4" fill="url(#tempGrad)" opacity="0.7"/>
+  <!-- Tick marks and labels -->
+  <text x="60" y="22" font-family="Georgia, serif" font-size="11" fill="#cc2200" text-anchor="start">10&#x00B3; MeV</text>
+  <line x1="60" y1="28" x2="60" y2="36" stroke="#cc2200" stroke-width="1.5"/>
+
+  <text x="260" y="22" font-family="Georgia, serif" font-size="11" fill="#dd4422" text-anchor="middle">100 MeV</text>
+  <line x1="260" y1="28" x2="260" y2="36" stroke="#dd4422" stroke-width="1.5"/>
+
+  <text x="420" y="22" font-family="Georgia, serif" font-size="11" fill="#aa5588" text-anchor="middle">10 MeV</text>
+  <line x1="420" y1="28" x2="420" y2="36" stroke="#aa5588" stroke-width="1.5"/>
+
+  <text x="650" y="22" font-family="Georgia, serif" font-size="11" fill="#6655aa" text-anchor="middle">1 MeV</text>
+  <line x1="650" y1="28" x2="650" y2="36" stroke="#6655aa" stroke-width="1.5"/>
+
+  <text x="1040" y="22" font-family="Georgia, serif" font-size="11" fill="#2244aa" text-anchor="end">~10&#x207B;&#x00B9; eV (today)</text>
+  <line x1="1040" y1="28" x2="1040" y2="36" stroke="#2244aa" stroke-width="1.5"/>
+
+  <text x="550" y="12" font-family="Georgia, serif" font-size="10" fill="#666" text-anchor="middle" font-style="italic">Temperature  &#x2192;  decreasing</text>
+
+  <!-- ================================================================ -->
+  <!-- TIME SCALE (bottom bar) -->
+  <!-- ================================================================ -->
+  <rect x="60" y="462" width="980" height="6" rx="3" fill="#bbc" opacity="0.4"/>
+  <text x="60" y="480" font-family="Georgia, serif" font-size="10" fill="#556" text-anchor="start">10&#x207B;&#x2076; s</text>
+  <text x="260" y="480" font-family="Georgia, serif" font-size="10" fill="#556" text-anchor="middle">10&#x207B;&#x2074; s</text>
+  <text x="420" y="480" font-family="Georgia, serif" font-size="10" fill="#556" text-anchor="middle">~1 s</text>
+  <text x="650" y="480" font-family="Georgia, serif" font-size="10" fill="#556" text-anchor="middle">~100 s</text>
+  <text x="1040" y="480" font-family="Georgia, serif" font-size="10" fill="#556" text-anchor="end">13.8 Gyr (today)</text>
+  <text x="550" y="495" font-family="Georgia, serif" font-size="10" fill="#666" text-anchor="middle" font-style="italic">Time  &#x2192;  increasing</text>
+
+  <!-- ================================================================ -->
+  <!-- MAIN TIMELINE ARROW -->
+  <!-- ================================================================ -->
+  <line x1="60" y1="240" x2="1050" y2="240" stroke="#445" stroke-width="2" marker-end="url(#arrowHead)" opacity="0.3"/>
+
+  <!-- ================================================================ -->
+  <!-- PHASE 1: PRIMORDIAL PLASMA (T > 100 MeV) -->
+  <!-- ================================================================ -->
+  <!-- Plasma glow region -->
+  <ellipse cx="155" cy="230" rx="110" ry="100" fill="url(#plasmaGlow)"/>
+
+  <!-- Phase label -->
+  <text x="155" y="68" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#993322" text-anchor="middle">Phase 1</text>
+  <text x="155" y="84" font-family="Georgia, serif" font-size="11" fill="#aa4433" text-anchor="middle">Quark-Gluon Era</text>
+  <text x="155" y="100" font-family="Georgia, serif" font-size="10" fill="#aa4433" text-anchor="middle" font-style="italic">T &gt; 100 MeV</text>
+
+  <!-- Mixed topological configurations: small circles and knots intermixed -->
+  <!-- Purple particles -->
+  <circle cx="90" cy="190" r="6" fill="none" stroke="#8855cc" stroke-width="2"/>
+  <circle cx="190" cy="260" r="5" fill="none" stroke="#8855cc" stroke-width="2"/>
+  <path d="M135,200 C145,190 155,210 145,215 C135,220 125,200 135,195" fill="none" stroke="#8855cc" stroke-width="1.8"/>
+
+  <!-- Coral particles -->
+  <circle cx="130" cy="250" r="5" fill="none" stroke="#e06050" stroke-width="2"/>
+  <circle cx="170" cy="195" r="6" fill="none" stroke="#e06050" stroke-width="2"/>
+  <path d="M100,230 C110,220 120,240 110,245 C100,250 90,230 100,225" fill="none" stroke="#e06050" stroke-width="1.8"/>
+
+  <!-- Teal particles -->
+  <circle cx="150" cy="225" r="5" fill="none" stroke="#3a9e9e" stroke-width="2"/>
+  <circle cx="110" cy="265" r="6" fill="none" stroke="#3a9e9e" stroke-width="2"/>
+  <path d="M175,240 C185,230 195,250 185,255 C175,260 165,240 175,235" fill="none" stroke="#3a9e9e" stroke-width="1.8"/>
+
+  <!-- More mixed particles for density -->
+  <circle cx="210" cy="220" r="4" fill="none" stroke="#8855cc" stroke-width="1.5"/>
+  <circle cx="80" cy="240" r="4" fill="none" stroke="#e06050" stroke-width="1.5"/>
+  <circle cx="200" cy="245" r="5" fill="none" stroke="#3a9e9e" stroke-width="1.5"/>
+  <path d="M220,235 C228,228 234,242 228,246" fill="none" stroke="#e06050" stroke-width="1.5"/>
+  <path d="M85,210 C93,203 99,217 93,221" fill="none" stroke="#3a9e9e" stroke-width="1.5"/>
+  <circle cx="140" cy="275" r="4" fill="none" stroke="#8855cc" stroke-width="1.5"/>
+  <circle cx="165" cy="280" r="3.5" fill="none" stroke="#e06050" stroke-width="1.5"/>
+
+  <!-- Annotation -->
+  <text x="155" y="310" font-family="Georgia, serif" font-size="9.5" fill="#664" text-anchor="middle" font-style="italic">All topological states</text>
+  <text x="155" y="323" font-family="Georgia, serif" font-size="9.5" fill="#664" text-anchor="middle" font-style="italic">thermally accessible</text>
+
+  <!-- ================================================================ -->
+  <!-- PHASE 2: TOPOLOGICAL FREEZE-OUT (T ~ 10-100 MeV) -->
+  <!-- ================================================================ -->
+  <!-- Transition zone background -->
+  <rect x="290" y="110" width="100" height="260" rx="6" fill="#eeddff" opacity="0.35"/>
+
+  <!-- Dashed vertical transition line -->
+  <line x1="340" y1="108" x2="340" y2="380" stroke="#7744aa" stroke-width="2.5" stroke-dasharray="8,5" opacity="0.7"/>
+
+  <!-- Phase label -->
+  <text x="340" y="68" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#6633aa" text-anchor="middle">Phase 2</text>
+  <text x="340" y="84" font-family="Georgia, serif" font-size="11" fill="#7744aa" text-anchor="middle">Topological Freeze-out</text>
+  <text x="340" y="100" font-family="Georgia, serif" font-size="10" fill="#7744aa" text-anchor="middle" font-style="italic">T&#x2082; ~ 10&#x2013;100 MeV</text>
+
+  <!-- "Topology locked in" arrow -->
+  <line x1="310" y1="393" x2="370" y2="393" stroke="#6633aa" stroke-width="1.5" marker-end="url(#arrowHead)"/>
+  <text x="340" y="410" font-family="Georgia, serif" font-size="10" fill="#6633aa" text-anchor="middle" font-weight="bold">Topology locked in</text>
+
+  <!-- Particles passing through the transition -->
+  <!-- Left side (mixed) -->
+  <circle cx="295" cy="200" r="4" fill="none" stroke="#3a9e9e" stroke-width="1.8"/>
+  <path d="M295,245 C303,238 309,252 303,256 C297,260 289,245 295,240" fill="none" stroke="#e06050" stroke-width="1.8"/>
+  <circle cx="300" cy="270" r="4" fill="none" stroke="#8855cc" stroke-width="1.8"/>
+
+  <!-- Right side (starting to separate) -->
+  <!-- Upper: knots (teal/dark matter) -->
+  <path d="M370,190 C378,183 384,197 378,201 C372,205 364,190 370,185" fill="none" stroke="#3a9e9e" stroke-width="1.8"/>
+  <path d="M385,200 C393,193 399,207 393,211" fill="none" stroke="#3a9e9e" stroke-width="1.5"/>
+  <!-- Lower: circles (coral/ordinary matter) -->
+  <circle cx="375" cy="275" r="5" fill="none" stroke="#e06050" stroke-width="1.8"/>
+  <circle cx="388" cy="265" r="4" fill="none" stroke="#e06050" stroke-width="1.8"/>
+
+  <!-- ================================================================ -->
+  <!-- PHASE 3: MATTER SEPARATION (T < 10 MeV) -->
+  <!-- ================================================================ -->
+
+  <!-- Phase label -->
+  <text x="570" y="68" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#336666" text-anchor="middle">Phase 3</text>
+  <text x="570" y="84" font-family="Georgia, serif" font-size="11" fill="#446666" text-anchor="middle">Matter Separation</text>
+  <text x="570" y="100" font-family="Georgia, serif" font-size="10" fill="#446666" text-anchor="middle" font-style="italic">T &lt; 10 MeV</text>
+
+  <!-- DARK MATTER STREAM (upper, wider — ~5:1 ratio) -->
+  <path d="M400,200 C450,185 520,140 620,130 L750,120 L750,210 L620,215 C520,220 450,225 400,235 Z"
+        fill="url(#darkStream)" opacity="0.22" stroke="none"/>
+  <path d="M400,200 C450,185 520,140 620,130 L750,120"
+        fill="none" stroke="#2a7a7a" stroke-width="2" opacity="0.6"/>
+  <path d="M400,235 C450,225 520,220 620,215 L750,210"
+        fill="none" stroke="#2a7a7a" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Knot icons in dark matter stream -->
+  <g opacity="0.85">
+    <path d="M460,185 C468,177 476,192 468,197 C460,202 452,185 460,180" fill="none" stroke="#2a7a7a" stroke-width="2"/>
+    <path d="M510,165 C518,157 526,172 518,177 C510,182 502,165 510,160" fill="none" stroke="#3a8888" stroke-width="2"/>
+    <path d="M560,150 C568,142 576,157 568,162 C560,167 552,150 560,145" fill="none" stroke="#3a8888" stroke-width="1.8"/>
+    <path d="M610,140 C618,132 626,147 618,152 C610,157 602,140 610,135" fill="none" stroke="#4a9090" stroke-width="1.8"/>
+    <path d="M490,200 C498,192 506,207 498,212 C490,217 482,200 490,195" fill="none" stroke="#2a7a7a" stroke-width="1.8"/>
+    <path d="M540,185 C548,177 556,192 548,197" fill="none" stroke="#3a8888" stroke-width="1.8"/>
+    <path d="M580,175 C588,167 596,182 588,187 C580,192 572,175 580,170" fill="none" stroke="#3a8888" stroke-width="1.5"/>
+    <path d="M650,145 C658,137 666,152 658,157" fill="none" stroke="#4a9090" stroke-width="1.5"/>
+    <path d="M630,165 C638,157 646,172 638,177" fill="none" stroke="#4a9090" stroke-width="1.5"/>
+    <path d="M530,195 C536,190 542,200 536,203" fill="none" stroke="#3a8888" stroke-width="1.5"/>
+    <path d="M680,135 C688,127 696,142 688,147 C680,152 672,135 680,130" fill="none" stroke="#4a9090" stroke-width="1.5"/>
+    <path d="M700,155 C708,147 716,162 708,167" fill="none" stroke="#4a9090" stroke-width="1.5"/>
+  </g>
+
+  <!-- Dark matter stream label -->
+  <text x="590" y="127" font-family="Georgia, serif" font-size="11" fill="#1a6060" font-weight="bold">H = 0 (knots)</text>
+  <text x="700" y="175" font-family="Georgia, serif" font-size="14" fill="#1a6060" font-weight="bold">DARK MATTER</text>
+  <text x="700" y="192" font-family="Georgia, serif" font-size="11" fill="#2a7a7a">(~26.8%)</text>
+
+  <!-- ORDINARY MATTER STREAM (lower, narrower) -->
+  <path d="M400,260 C450,270 520,300 620,315 L750,325 L750,345 L620,340 C520,330 450,295 400,275 Z"
+        fill="url(#ordStream)" opacity="0.2" stroke="none"/>
+  <path d="M400,260 C450,270 520,300 620,315 L750,325"
+        fill="none" stroke="#c04030" stroke-width="2" opacity="0.6"/>
+  <path d="M400,275 C450,295 520,330 620,340 L750,345"
+        fill="none" stroke="#c04030" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Circle icons in ordinary matter stream -->
+  <g opacity="0.85">
+    <circle cx="460" cy="272" r="5" fill="none" stroke="#c04030" stroke-width="2"/>
+    <circle cx="500" cy="290" r="4.5" fill="none" stroke="#c04030" stroke-width="1.8"/>
+    <circle cx="540" cy="305" r="5" fill="none" stroke="#d05535" stroke-width="1.8"/>
+    <circle cx="580" cy="316" r="4" fill="none" stroke="#d05535" stroke-width="1.8"/>
+    <circle cx="620" cy="326" r="5" fill="none" stroke="#d08040" stroke-width="1.8"/>
+    <circle cx="660" cy="332" r="4" fill="none" stroke="#d08040" stroke-width="1.5"/>
+    <circle cx="700" cy="335" r="4.5" fill="none" stroke="#d08040" stroke-width="1.5"/>
+  </g>
+
+  <!-- Ordinary matter stream label -->
+  <text x="570" y="360" font-family="Georgia, serif" font-size="11" fill="#a03020" font-weight="bold">H = &#x00B1;1 (unknots)</text>
+  <text x="700" y="310" font-family="Georgia, serif" font-size="13" fill="#a03020" font-weight="bold">ORDINARY MATTER</text>
+  <text x="700" y="326" font-family="Georgia, serif" font-size="11" fill="#c04030">(~4.9%)</text>
+
+  <!-- 5:1 RATIO LABEL -->
+  <g transform="translate(730,230)">
+    <rect x="-38" y="-18" width="76" height="40" rx="8" fill="#eeeeff" stroke="#6655aa" stroke-width="1.5" opacity="0.85"/>
+    <text x="0" y="0" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#4433aa" text-anchor="middle">5 : 1</text>
+    <text x="0" y="15" font-family="Georgia, serif" font-size="9" fill="#6655aa" text-anchor="middle">DM : OM</text>
+  </g>
+
+  <!-- Diverging arrows -->
+  <path d="M410,240 C440,230 460,200 490,175" fill="none" stroke="#2a7a7a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowHeadTeal)" opacity="0.5"/>
+  <path d="M410,240 C440,255 460,280 490,295" fill="none" stroke="#c04030" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowHeadCoral)" opacity="0.5"/>
+
+  <!-- ================================================================ -->
+  <!-- PHASE 4: PRESENT DAY -->
+  <!-- ================================================================ -->
+
+  <!-- Phase label -->
+  <text x="920" y="68" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#2244aa" text-anchor="middle">Phase 4</text>
+  <text x="920" y="84" font-family="Georgia, serif" font-size="11" fill="#3355aa" text-anchor="middle">Present Day</text>
+  <text x="920" y="100" font-family="Georgia, serif" font-size="10" fill="#3355aa" text-anchor="middle" font-style="italic">T ~ 2.7 K</text>
+
+  <!-- Separator -->
+  <line x1="820" y1="108" x2="820" y2="380" stroke="#99aabb" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+  <!-- Dark matter halo (upper) -->
+  <g transform="translate(910,165)">
+    <ellipse cx="0" cy="0" rx="60" ry="40" fill="#3a9e9e" opacity="0.08" stroke="#3a9e9e" stroke-width="1" stroke-dasharray="4,3"/>
+    <ellipse cx="0" cy="0" rx="40" ry="26" fill="#3a9e9e" opacity="0.1"/>
+    <!-- Scattered knots -->
+    <path d="M-20,-10 C-14,-16 -6,-4 -12,0 C-18,4 -24,-4 -20,-8" fill="none" stroke="#2a7a7a" stroke-width="1.5" opacity="0.7"/>
+    <path d="M15,-5 C21,-11 27,1 21,5 C15,9 9,-5 15,-9" fill="none" stroke="#2a7a7a" stroke-width="1.5" opacity="0.7"/>
+    <path d="M-5,12 C1,6 7,18 1,22" fill="none" stroke="#2a7a7a" stroke-width="1.3" opacity="0.6"/>
+    <path d="M30,5 C36,-1 42,11 36,15" fill="none" stroke="#3a8888" stroke-width="1.2" opacity="0.5"/>
+    <path d="M-35,0 C-29,-6 -23,6 -29,10" fill="none" stroke="#3a8888" stroke-width="1.2" opacity="0.5"/>
+    <text x="0" y="55" font-family="Georgia, serif" font-size="9.5" fill="#2a7a7a" text-anchor="middle">Gravitational only</text>
+    <text x="0" y="67" font-family="Georgia, serif" font-size="9.5" fill="#2a7a7a" text-anchor="middle">Forms halos</text>
+  </g>
+
+  <!-- Ordinary matter (lower) — stars/galaxies -->
+  <g transform="translate(910,330)">
+    <!-- A small stylized galaxy -->
+    <ellipse cx="0" cy="0" rx="45" ry="18" fill="#e06050" opacity="0.1" stroke="#d08040" stroke-width="1" transform="rotate(-15)"/>
+    <!-- Stars -->
+    <circle cx="-20" cy="-8" r="3" fill="#e0a040" opacity="0.6"/>
+    <circle cx="10" cy="5" r="2.5" fill="#e0a040" opacity="0.7"/>
+    <circle cx="-8" cy="8" r="2" fill="#e0a040" opacity="0.5"/>
+    <circle cx="25" cy="-3" r="2.5" fill="#e0a040" opacity="0.6"/>
+    <circle cx="0" cy="-5" r="3.5" fill="#e0a040" opacity="0.7"/>
+    <!-- Circles (unknots) -->
+    <circle cx="-30" cy="0" r="4" fill="none" stroke="#c04030" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="35" cy="2" r="4" fill="none" stroke="#c04030" stroke-width="1.5" opacity="0.6"/>
+    <text x="0" y="35" font-family="Georgia, serif" font-size="9.5" fill="#a03020" text-anchor="middle">EM interactions</text>
+    <text x="0" y="47" font-family="Georgia, serif" font-size="9.5" fill="#a03020" text-anchor="middle">Stars, galaxies</text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- STATE COUNTING NOTE (bottom center) -->
+  <!-- ================================================================ -->
+  <g transform="translate(550,430)">
+    <rect x="-240" y="-15" width="480" height="32" rx="6" fill="#fff" stroke="#9988bb" stroke-width="1" opacity="0.75"/>
+    <text x="0" y="5" font-family="Georgia, serif" font-size="10" fill="#554" text-anchor="middle">
+      State counting:  ~2 charged states (H = &#x00B1;1)  vs  ~10&#x2013;20 neutral states (H = 0)   &#x2192;   ratio &#x2248; 5:1
+    </text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- CAPTION -->
+  <!-- ================================================================ -->
+  <text x="550" y="496" font-family="Georgia, serif" font-size="11" fill="#334" text-anchor="middle" font-weight="bold">
+    Figure 7: Cosmological timeline &#x2014; topological freeze-out produces ~5:1 dark-to-ordinary matter ratio
+  </text>
+</svg>
