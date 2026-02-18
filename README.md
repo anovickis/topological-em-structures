@@ -11,9 +11,15 @@ The electron is proposed as a topological Hopf soliton (linking number $H = \pm 
 
 - **Paper:** [`ToroidalElectronPaper/Toroidal_Electron_Full_Paper.md`](ToroidalElectronPaper/Toroidal_Electron_Full_Paper.md)
 - **FAQ:** [`ToroidalElectronPaper/FAQ.md`](ToroidalElectronPaper/FAQ.md)
-- **Multi-linking extension (quarks):** [`ToroidalElectronPaper/Multi-Linking_Soliton_Spectrum.md`](ToroidalElectronPaper/Multi-Linking_Soliton_Spectrum.md)
+### 2. Quarks and Confinement from Multi-Sector Hopf Solitons
+**"Quarks and Confinement from Multi-Sector Hopf Solitons: Extending the Toroidal Electron to Hadrons"**
 
-### 2. Dark Matter as Topological EM Structures
+Extends the toroidal electron model to the hadron sector. The Duan-Liu-Zhang decomposition proves that a single $H = 1$ soliton decomposes into sectors carrying fractional Hopf charge. The SU(3) Cho-Faddeev-Niemi decomposition yields the flag manifold $F_2$ with two independent topological charges and natural $\mathbb{Z}_3$ color symmetry. Five convergent mathematical frameworks produce: fractional quark charges, color confinement as topological inseparability, absolute proton stability, and neutron instability.
+
+- **Paper:** [`MultiLinkingPaper/Quarks_and_Confinement_from_Multi-Sector_Hopf_Solitons.md`](MultiLinkingPaper/Quarks_and_Confinement_from_Multi-Sector_Hopf_Solitons.md)
+- **Working notes:** [`ToroidalElectronPaper/Multi-Linking_Soliton_Spectrum.md`](ToroidalElectronPaper/Multi-Linking_Soliton_Spectrum.md)
+
+### 3. Dark Matter as Topological EM Structures
 **"Dark Matter as Topological Electromagnetic Structures: Mathematical Framework for H = 0 Stable Configurations"**
 
 Extends the toroidal electron model to propose that dark matter consists of stable, uncharged ($H = 0$) knotted solitons (trefoils, figure-8 knots) in the Faddeev-Niemi model. Predicts MeV-scale dark matter with specific gamma-ray signatures testable by the COSI mission (2027).
@@ -53,6 +59,9 @@ All Python scripts use `matplotlib` with headless (`Agg`) backend.
 | Soliton energy match | $\kappa_2 \sim \alpha\hbar c$ (15%) | Toroidal Electron |
 | $C_2$ anomalous magnetic moment | $\approx -0.33$ vs QED's $-0.3285$ | Toroidal Electron |
 | Mass formula accuracy | 0.008% with {21, 15} | Toroidal Electron |
+| Fractional sector charge | $1/3$ per sector (Duan decomposition) | Multi-Sector Hopf |
+| Flag manifold topology | $\pi_2(F_2) = \mathbb{Z} \oplus \mathbb{Z}$ | Multi-Sector Hopf |
+| Convergent frameworks | 5 independent + skyrmion analogy | Multi-Sector Hopf |
 | Best dark matter mass (trefoil) | $2.0^{+0.7}_{-0.8}$ MeV | Dark Matter |
 | Dark matter free-streaming | $< 10^{-2}$ Mpc (cold) | Dark Matter |
 
