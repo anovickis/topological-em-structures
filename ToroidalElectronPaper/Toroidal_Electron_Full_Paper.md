@@ -106,7 +106,7 @@ This equals the de Broglie frequency. The electron's rest energy $E = m_e c^2$ c
 
 ### 3.3 Deep Inelastic Scattering Constraint
 
-Electron scattering experiments probe structure down to $\sim 10^{-18}$ m [36] — five orders of magnitude smaller than $\bar{\lambda}_C$ — with no observed deviation from pointlike behavior. This is the most serious experimental challenge to any extended electron model. The resolution developed in §15.5 uses the Cho-Faddeev-Niemi decomposition (§13.3.1) to argue that electric charge is carried by the Abelian gauge component $C_\mu$, not by the spatially extended soliton field $\mathbf{n}$, leading to a topological Ward identity that gives $F_E(q^2) = 1$ exactly (Eq. 15.18). The *magnetic* form factor retains structure at $R \sim \bar{\lambda}_C$, but this contributes only to spin-dependent observables.
+Electron scattering experiments probe structure down to $\sim 10^{-18}$ m [36, 63] — five orders of magnitude smaller than $\bar{\lambda}_C$ — with no observed deviation from pointlike behavior. This is the most serious experimental challenge to any extended electron model. The resolution developed in §15.5 uses the Cho-Faddeev-Niemi decomposition (§13.3.1) to argue that electric charge is carried by the Abelian gauge component $C_\mu$, not by the spatially extended soliton field $\mathbf{n}$, leading to a topological Ward identity that gives $F_E(q^2) = 1$ exactly (Eq. 15.18). The *magnetic* form factor retains structure at $R \sim \bar{\lambda}_C$, but this contributes only to spin-dependent observables.
 
 ---
 
@@ -801,7 +801,7 @@ $$F(q) \approx 1 - q^2 R^2/6 + ... \tag{15.5}$$
 | Medium energy | 100 MeV/$c$ | 0.2 | 0.0014 | $\sim 0.007$ | $\sim 3 \times 10^{-7}$ |
 | LEP energies | 100 GeV/$c$ | $\sim 200$ | $\sim 1.4$ | $\sim 1$ (non-perturbative) | $\sim 0.3$ |
 
-At LEP energies ($\sqrt{s} \approx 200$ GeV), $qR \gg 1$, and the low-$q$ expansion (15.5) breaks down entirely. The fact that no structure is observed at LEP [36] means the charge form factor must remain close to unity even at $q \sim 100$ GeV/$c$ — requiring $r_{\text{eff}} \lesssim 10^{-18}$ m, far smaller than either $r_e$ or $\bar{\lambda}_C$.
+At LEP energies ($\sqrt{s} \approx 200$ GeV), $qR \gg 1$, and the low-$q$ expansion (15.5) breaks down entirely. The fact that no structure is observed at LEP [63] means the charge form factor must remain close to unity even at $q \sim 100$ GeV/$c$ — requiring $r_{\text{eff}} \lesssim 10^{-18}$ m, far smaller than either $r_e$ or $\bar{\lambda}_C$.
 
 **Resolution: topological charge is non-local.** The key insight resolving this tension comes from the nature of topological charge. In the Hopf soliton, electric charge is identified with the topological Hopf invariant $H$ (§4.2) — a *global* quantity defined by the linking integral (13.3), not a *local* charge density $\rho(\mathbf{r})$.
 
@@ -1143,10 +1143,12 @@ The Mu-MASS experiment at PSI aims for 1000$\times$ improvement in the 1S-2S fre
 | H Lamb shift | 1057.844 MHz | 1057.844 $\pm$ 0.1 MHz | ~0.01% | Near current precision |
 | $\mu$H Lamb shift | 202.037 meV | Modified by $e^-$ structure | ~0.1%? | Next-generation experiments |
 | Ps 1S-2S | 1233607222.2 MHz | Modified overlap | $\sim$ sub-kHz | Post-laser-cooling era |
-| o-Ps lifetime | 142.046 ns | Topology-dependent | ~$10^{-5}$? | Challenging |
+| o-Ps lifetime | 142.046 ns | Modified by finite $e^\pm$ extent | $\delta\tau/\tau \sim \alpha^4 \sim 3 \times 10^{-9}$ | Beyond current precision |
 | $\bar{\text{H}}$ vs H Lamb | Identical | Identical | 0 | CPT test |
 
 **Note on Ps 1S-2S estimate.** In positronium the $e^+e^-$ overlap integral $|\psi(0)|^2$ directly determines annihilation rates and hyperfine splittings. A toroidal electron with finite extent $r_e \sim \alpha \bar{\lambda}_C$ modifies this overlap at order $(r_e/a_0)^2 \sim \alpha^4$ relative to the point-particle Bohr radius $a_0$. The resulting frequency shift scales as $\Delta f \sim \alpha^5 m_e c^2/h \times (r_e/a_0)^2 \sim$ sub-kHz, comparable to the current $O(\alpha^7)$ QED uncertainty. Detection requires post-laser-cooling precision spectroscopy at the sub-kHz level.
+
+**Note on o-Ps lifetime estimate.** The orthopositronium decay rate $\Gamma \propto \alpha^6 m_e |\psi(0)|^2$ depends on the same overlap integral. Finite electron extent modifies $|\psi(0)|^2$ at relative order $(r_e/a_0)^2 \sim \alpha^4 \approx 3 \times 10^{-9}$. The current experimental precision on $\tau_{\text{o-Ps}}$ is $\sim 200$ ppm ($2 \times 10^{-4}$), five orders of magnitude above the predicted effect. This places the o-Ps test well beyond near-term experimental reach.
 
 ### 18.6 Timeline and Key Facilities
 
@@ -1189,7 +1191,7 @@ Beyond Lamb shift, the toroidal model makes testable predictions:
 
 The model is ruled out if:
 
-- **Magnetic form factor:** The topological Ward identity argument (§15.5) predicts the *electric* charge form factor $F_E(q^2) = 1$ exactly — consistent with all existing scattering bounds [36]. However, the *magnetic* form factor $F_M(q^2)$ should show structure at the soliton scale $R \sim \bar{\lambda}_C$. The model is falsified if precision measurements of spin-dependent scattering observables (sensitive to $F_M$) show no deviation from the Dirac point-particle prediction at momentum transfers $q \sim 1/\bar{\lambda}_C \sim 2.6$ MeV/$c$ with sensitivity $|F_M(q) - 1| < 10^{-6}$. Additionally, if loop corrections to $F_E$ are computed from the Faddeev-Niemi equations and yield $|F_E - 1| > 10^{-4}$ at LEP energies, the model is ruled out by existing data.
+- **Magnetic form factor:** The topological Ward identity argument (§15.5) predicts the *electric* charge form factor $F_E(q^2) = 1$ exactly — consistent with all existing scattering bounds [36, 63]. However, the *magnetic* form factor $F_M(q^2)$ should show structure at the soliton scale $R \sim \bar{\lambda}_C$. The model is falsified if precision measurements of spin-dependent scattering observables (sensitive to $F_M$) show no deviation from the Dirac point-particle prediction at momentum transfers $q \sim 1/\bar{\lambda}_C \sim 2.6$ MeV/$c$ with sensitivity $|F_M(q) - 1| < 10^{-6}$. Additionally, if loop corrections to $F_E$ are computed from the Faddeev-Niemi equations and yield $|F_E - 1| > 10^{-4}$ at LEP energies, the model is ruled out by existing data.
 - **Lamb shift:** Precision spectroscopy excludes any electron-structure contribution at the $> 1$ kHz level in the magnetic-structure corrections (§15.4, Eq. 15.4b). The model predicts $\delta E_{\text{mag}} \sim$ kHz from the magnetic moment distribution extending to $R \sim \bar{\lambda}_C$; confirmation or falsification requires next-generation spectroscopy.
 - **g-2 coefficients:** The semi-quantitative estimate $C_2 \approx -0.33$ (§14.2) is in 0.5% agreement with QED's $-0.3285$. A rigorous computation of $C_2$ from the full Faddeev-Niemi soliton profile that *disagrees* with the known value would falsify the model. Similarly, if $C_3, C_4, \ldots$ computed from the toroidal field distribution disagree with QED, the model is ruled out.
 - **Hopf soliton instability:** If Faddeev-Niemi Hopf solitons with $|H| = 1$ are demonstrated to be unstable in the full nonlinear dynamics (not just in linear Maxwell theory, where instability is already known), this would undermine the model's topological stability argument.
@@ -1245,7 +1247,7 @@ The toroidal framework identifies *geometric correspondences* with features the 
 
 ### 20.3 Relationship to QFT
 
-The claim that the toroidal model and QED are "complementary" contains a significant tension. The Standard Model asserts that the electron is a point particle — this is not merely computational convenience but a structural feature validated by scattering experiments to $10^{-18}$ m [36]. If the toroidal model claims spatial extent at $\bar{\lambda}_C \sim 386$ fm, this *contradicts* QED at a foundational level.
+The claim that the toroidal model and QED are "complementary" contains a significant tension. The Standard Model asserts that the electron is a point particle — this is not merely computational convenience but a structural feature validated by scattering experiments to $10^{-18}$ m [63]. If the toroidal model claims spatial extent at $\bar{\lambda}_C \sim 386$ fm, this *contradicts* QED at a foundational level.
 
 Quantum field theory already treats particles as field excitations — the electron is an excitation of the Dirac field $\psi$. In this sense, QFT already embodies the insight that "the electron is its field." What the toroidal model would add, if validated, is a *specific geometric structure* for that field excitation. But to make this claim rigorous, one would need to derive QED's perturbative expansion from the toroidal dynamics, including renormalization, the anomalous magnetic moment, and the running of $\alpha$. No such derivation exists.
 
@@ -1316,11 +1318,12 @@ The following problems are classified by urgency:
 7. **Weak interaction:** The CFN framework identifies the mathematical structure (§20.1) but four specific obstacles remain (fermion statistics, chirality, Higgs mechanism, coupling matching).
 8. **Lepton generations:** Dimension scaling, radial excitations ($m_1/m_e \sim 2$-$3$), higher Hopf charges ($m_{|H|=2}/m_e \approx 1.8$), and perturbative coupling running all fail quantitatively (§16). Non-perturbative self-consistency mechanism is the most promising direction but remains heuristic.
 9. **Numerical computation:** Gradient flow computation attempted (§13.5) — confirms fat-torus shape ($A \approx 2.9$) and provides $C_2 \approx -0.30$ from energy-weighted distribution. However, topology-preserving minimisation (arrested Newton flow) not yet implemented; the converged solution loses Hopf charge. Remaining: implement constrained optimisation to reach the BS minimum $E \approx 192.5$.
+10. **Fermionic quantization selection:** The Finkelstein-Rubinstein mechanism (§4.3) proves that the $|H| = 1$ Hopf soliton *admits* fermionic quantization, but both bosonic and fermionic sectors are mathematically consistent. Determining which is *selected* requires matching to the underlying SU(2) gauge theory via the CFN embedding — a calculation that has not been performed (§4.3, §20.1).
 
 **Unaddressed:**
-10. **Bootstrap equation:** Write down $\alpha = F(\alpha)$ explicitly and analyze its fixed points.
-11. **Quarks and QCD:** Extend the framework to fractional charges and color confinement. A speculative extension based on sector decomposition of the Hopf invariant (Duan-Liu-Zhang [58]) within the SU(3) flag manifold CFN framework (Cho-Pak [59]) is outlined in Appendix B. Five independent mathematical frameworks converge on a picture where quarks are sectors of a single soliton, confinement is topological, and the charge quantum $e/3$ arises from $\mathbb{Z}_3$ center symmetry. The decisive numerical test — computing the minimum-energy soliton of the flag manifold sigma model — has not been attempted.
-12. **Higher-order $g-2$:** Computing $C_3, C_4, \ldots$ from the soliton field distribution.
+11. **Bootstrap equation:** Write down $\alpha = F(\alpha)$ explicitly and analyze its fixed points.
+12. **Quarks and QCD:** Extend the framework to fractional charges and color confinement. A speculative extension based on sector decomposition of the Hopf invariant (Duan-Liu-Zhang [58]) within the SU(3) flag manifold CFN framework (Cho-Pak [59]) is outlined in Appendix B. Five independent mathematical frameworks converge on a picture where quarks are sectors of a single soliton, confinement is topological, and the charge quantum $e/3$ arises from $\mathbb{Z}_3$ center symmetry. The decisive numerical test — computing the minimum-energy soliton of the flag manifold sigma model — has not been attempted.
+13. **Higher-order $g-2$:** Computing $C_3, C_4, \ldots$ from the soliton field distribution.
 
 ### 21.4 Final Perspective
 
@@ -1547,7 +1550,7 @@ The decisive test is numerical: compute the minimum-energy soliton of the flag m
 
 [35] Jackson, J.D. (1999). *Classical Electrodynamics*, 3rd ed. Wiley. Ch. 17. (Standard derivation of $r_e/\bar{\lambda}_C = \alpha$.)
 
-[36] Gabrielse, G. et al. (2006). "New Determination of the Fine Structure Constant from the Electron g Value and QED." Phys. Rev. Lett. 97, 030802. (Electron size bounds from $g-2$.) See also: Bourilkov, D. (2001). "Search for TeV Strings and New Phenomena in Bhabha Scattering at CERN LEP2." Phys. Rev. D 64, 071701. (Direct LEP Bhabha scattering bound on electron contact interactions, constraining $r_e \lesssim 10^{-18}$ m.)
+[36] Gabrielse, G. et al. (2006). "New Determination of the Fine Structure Constant from the Electron g Value and QED." Phys. Rev. Lett. 97, 030802. (Precision $g-2$ determination.)
 
 [37] Dirac, P.A.M. (1931). "Quantised Singularities in the Electromagnetic Field." Proc. R. Soc. A 133, 60-72. (Magnetic monopole argument for charge quantization.)
 
@@ -1600,6 +1603,8 @@ The decisive test is numerical: compute the minimum-energy soliton of the flag m
 [61] 't Hooft, G. (1981). "Topology of the gauge condition and new confinement phases in non-Abelian gauge theories." Nucl. Phys. B 190, 455. (Center vortex confinement mechanism via $\mathbb{Z}_N$ gauge topology.)
 
 [62] Balachandran, A.P. et al. (1983). "Monopole topology and the problem of color." PRL 50, 1553. ($\pi_1(\text{SU}(3)/\mathbb{Z}_3) = \mathbb{Z}_3$ as topological origin of color confinement.)
+
+[63] Bourilkov, D. (2001). "Search for TeV Strings and New Phenomena in Bhabha Scattering at CERN LEP2." Phys. Rev. D 64, 071701. (Direct LEP Bhabha scattering bound on electron contact interactions, constraining $r_e \lesssim 10^{-18}$ m.)
 
 ---
 
